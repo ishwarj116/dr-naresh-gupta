@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import HeroCanvas from '../components/HeroCanvas';
 import { site } from '../lib/siteConfig';
 import doctorPhoto from '../public/doctor-clinic.jpg';
 import doctorPortrait from '../public/doctor-portrait.jpg';
@@ -159,6 +160,7 @@ export default function Home() {
     <div id="top">
       <main>
         <section className="hero">
+          <HeroCanvas />
           <div className="container hero-inner">
             <div className="hero-text">
               <p className="eyebrow">
@@ -188,6 +190,11 @@ export default function Home() {
                   💬 WhatsApp पर पूछें
                 </a>
               </div>
+              <ul className="trust-chips">
+                <li>✓ {site.experienceYears}+ वर्षों का अनुभव</li>
+                <li>✓ सौम्य व सुरक्षित दवाएँ</li>
+                <li>✓ हज़ारों स्वस्थ रोगी</li>
+              </ul>
             </div>
             <figure className="hero-photo">
               <Image

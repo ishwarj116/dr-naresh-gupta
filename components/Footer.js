@@ -8,6 +8,7 @@ export default function Footer() {
         <nav className="footer-links" aria-label="फ़ुटर मेन्यू">
           <Link href="/#about">परिचय</Link>
           <Link href="/homeopathy">होम्योपैथी</Link>
+          <Link href="/medicines">औषधियाँ</Link>
           <Link href="/#specialties">रोग व उपचार</Link>
           <Link href="/#process">चिकित्सा-पद्धति</Link>
           <Link href="/#faq">प्रश्न-उत्तर</Link>

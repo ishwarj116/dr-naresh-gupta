@@ -90,6 +90,50 @@ export default function Effects() {
       document.querySelectorAll('.stat-num').forEach((el) => sio.observe(el));
       cleanup.push(() => sio.disconnect());
 
+      // FAQ (details) का खुलना-बंद होना ऊँचाई-एनीमेशन के साथ
+      document.querySelectorAll('.faq-item').forEach((det) => {
+        const summary = det.querySelector('summary');
+        const content = det.querySelector('p');
+        if (!summary || !content) return;
+        const onClick = (ev) => {
+          ev.preventDefault();
+          if (det.dataset.animating) return;
+          det.dataset.animating = '1';
+          content.style.overflow = 'hidden';
+          if (det.open) {
+            const hgt = content.offsetHeight;
+            const anim = content.animate(
+              [
+                { height: `${hgt}px`, opacity: 1 },
+                { height: '0px', opacity: 0 },
+              ],
+              { duration: 260, easing: 'ease' }
+            );
+            anim.onfinish = () => {
+              det.open = false;
+              content.style.overflow = '';
+              delete det.dataset.animating;
+            };
+          } else {
+            det.open = true;
+            const hgt = content.offsetHeight;
+            const anim = content.animate(
+              [
+                { height: '0px', opacity: 0 },
+                { height: `${hgt}px`, opacity: 1 },
+              ],
+              { duration: 320, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }
+            );
+            anim.onfinish = () => {
+              content.style.overflow = '';
+              delete det.dataset.animating;
+            };
+          }
+        };
+        summary.addEventListener('click', onClick);
+        cleanup.push(() => summary.removeEventListener('click', onClick));
+      });
+
       // हीरो फ़ोटो पर 3D झुकाव (सिर्फ़ माउस वाले डिवाइस)
       if (window.matchMedia('(hover: hover)').matches) {
         const fig = document.querySelector('.hero-photo');
