@@ -479,9 +479,8 @@ section[id] {
 }
 
 /* ---------- why ---------- */
-.why-grid {
+.why-stack {
   display: grid;
-  grid-template-columns: 1fr;
   gap: 18px;
   margin-top: 10px;
 }
@@ -869,10 +868,6 @@ section[id] {
 
   .cards {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .why-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .contact-grid {

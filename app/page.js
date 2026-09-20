@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { site } from '../lib/siteConfig';
 import doctorPhoto from '../public/doctor-clinic.jpg';
 import doctorPortrait from '../public/doctor-portrait.jpg';
+import doctorPoster from '../public/doctor-poster.jpg';
 import bottlesPhoto from '../public/homeo-bottles.jpg';
 import globulesPhoto from '../public/homeo-globules.jpg';
 
@@ -356,16 +357,25 @@ export default function Home() {
         </section>
 
         <section className="section" id="why">
-          <div className="container">
-            <h2>होम्योपैथी ही क्यों?</h2>
-            <div className="why-grid">
-              {whyPoints.map((w) => (
-                <div className="why-item" key={w.title}>
-                  <h3>{w.title}</h3>
-                  <p>{w.desc}</p>
-                </div>
-              ))}
+          <div className="container split">
+            <div className="split-text">
+              <h2>होम्योपैथी ही क्यों?</h2>
+              <div className="why-stack">
+                {whyPoints.map((w) => (
+                  <div className="why-item" key={w.title}>
+                    <h3>{w.title}</h3>
+                    <p>{w.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
+            <figure className="split-photo portrait">
+              <Image
+                src={doctorPoster}
+                alt="होम्योपैथी: सुरक्षित, प्राकृतिक एवं संपूर्ण चिकित्सा"
+                sizes="(min-width: 720px) 400px, 82vw"
+              />
+            </figure>
           </div>
         </section>
 
