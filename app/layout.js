@@ -1,4 +1,6 @@
 import { Tiro_Devanagari_Hindi, Mukta } from 'next/font/google';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import './globals.css';
 
 const headingFont = Tiro_Devanagari_Hindi({
@@ -23,7 +25,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="hi">
       <body className={`${headingFont.variable} ${bodyFont.variable}`}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

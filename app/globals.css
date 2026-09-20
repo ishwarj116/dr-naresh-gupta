@@ -634,6 +634,194 @@ section[id] {
   margin-inline: auto;
 }
 
+.mt-20 {
+  margin-top: 20px;
+}
+
+/* ---------- sub-page hero ---------- */
+.page-hero {
+  background: linear-gradient(180deg, var(--green-soft) 0%, var(--cream) 100%);
+  padding-block: clamp(36px, 6vw, 64px);
+}
+
+.page-hero h1 {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  margin-bottom: 12px;
+}
+
+.page-hero .lead {
+  margin-bottom: 0;
+}
+
+.crumbs {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+.crumbs a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.split-photo figcaption,
+.books-photo figcaption {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.split-photo.portrait {
+  max-width: 420px;
+  margin-inline: auto;
+}
+
+/* ---------- books ---------- */
+.books-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-top: 10px;
+}
+
+.books-list {
+  display: grid;
+  gap: 18px;
+}
+
+.book-card {
+  background: #fff;
+  border: 1px solid #eee5d2;
+  border-inline-start: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+}
+
+.book-year {
+  font-family: var(--font-heading), serif;
+  color: var(--gold);
+  font-size: 0.95rem;
+}
+
+.book-card h3 {
+  font-size: 1.15rem;
+  margin: 2px 0;
+}
+
+.book-original {
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+}
+
+.book-card p:last-child {
+  color: var(--ink-soft);
+  font-size: 0.97rem;
+}
+
+.books-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+
+.credit {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* ---------- myths ---------- */
+.myth-list {
+  display: grid;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.myth-card {
+  background: #fff;
+  border: 1px solid #eee5d2;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+}
+
+.myth-line {
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.fact-line {
+  color: var(--ink);
+}
+
+.tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 12px;
+  border-radius: 999px;
+  margin-inline-end: 8px;
+  vertical-align: middle;
+}
+
+.tag-myth {
+  background: #f7e3e0;
+  color: #9c3f33;
+}
+
+.tag-fact {
+  background: var(--green-soft);
+  color: var(--green-dark);
+}
+
+/* ---------- CTA band ---------- */
+.cta-band {
+  background: var(--green-dark);
+  color: var(--cream);
+  padding-block: clamp(40px, 6vw, 60px);
+}
+
+.cta-inner {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+.cta-band h2 {
+  color: #fff;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  margin-bottom: 8px;
+}
+
+.cta-band p {
+  opacity: 0.85;
+}
+
+.btn-light {
+  background: #fff;
+  color: var(--green-dark);
+}
+
+.btn-light:hover {
+  background: var(--cream-dark);
+}
+
+.btn-light-outline {
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  color: #fff;
+}
+
+.btn-light-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
 /* ---------- tablet & up ---------- */
 @media (min-width: 720px) {
   .hero-inner {
@@ -670,6 +858,15 @@ section[id] {
   .process-grid {
     grid-template-columns: 1.3fr 1fr;
     gap: 56px;
+  }
+
+  .books-grid {
+    grid-template-columns: 1.35fr 1fr;
+    gap: 56px;
+  }
+
+  .cta-inner {
+    grid-template-columns: 1fr auto;
   }
 
   .nav {

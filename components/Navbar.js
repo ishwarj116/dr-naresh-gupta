@@ -1,15 +1,16 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { site } from '../lib/siteConfig';
 
 const links = [
-  { href: '#about', label: 'परिचय' },
-  { href: '#homeopathy', label: 'होम्योपैथी' },
-  { href: '#specialties', label: 'रोग व उपचार' },
-  { href: '#process', label: 'चिकित्सा-पद्धति' },
-  { href: '#faq', label: 'प्रश्न-उत्तर' },
-  { href: '#contact', label: 'संपर्क' },
+  { href: '/#about', label: 'परिचय' },
+  { href: '/homeopathy', label: 'होम्योपैथी' },
+  { href: '/#specialties', label: 'रोग व उपचार' },
+  { href: '/#process', label: 'चिकित्सा-पद्धति' },
+  { href: '/#faq', label: 'प्रश्न-उत्तर' },
+  { href: '/#contact', label: 'संपर्क' },
 ];
 
 export default function Navbar() {
@@ -18,19 +19,19 @@ export default function Navbar() {
   return (
     <header className="topbar">
       <div className="container topbar-inner">
-        <a className="brand" href="#top">
+        <Link className="brand" href="/">
           <span className="brand-mark">ॐ</span>
           <span>
             <span className="brand-name">{site.doctorName}</span>
             <span className="brand-sub">होम्योपैथिक चिकित्सक</span>
           </span>
-        </a>
+        </Link>
 
         <nav className={open ? 'nav nav-open' : 'nav'} aria-label="मुख्य मेन्यू">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+            <Link key={l.href} href={l.href} onClick={() => setOpen(false)}>
               {l.label}
-            </a>
+            </Link>
           ))}
           <a
             className="btn btn-solid nav-call-mobile"

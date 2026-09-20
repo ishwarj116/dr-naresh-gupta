@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Navbar from '../components/Navbar';
+import Link from 'next/link';
 import { site } from '../lib/siteConfig';
 import doctorPhoto from '../public/doctor-clinic.jpg';
 import bottlesPhoto from '../public/homeo-bottles.jpg';
@@ -50,6 +50,16 @@ const specialties = [
     icon: '👂',
     title: 'कान बहना (Ear Discharge)',
     desc: 'बच्चों और बड़ों में कान से पानी या मवाद बहने की पुरानी शिकायत का जड़ से होम्योपैथिक उपचार।',
+  },
+  {
+    icon: '🌼',
+    title: 'चर्म रोग — दाग, छाजन, खुजली',
+    desc: 'त्वचा के दाग-धब्बे, छाजन (एक्ज़िमा), खाज-खुजली और बार-बार उभरने वाली त्वचा की शिकायतों का जड़ से होम्योपैथिक उपचार।',
+  },
+  {
+    icon: '🤧',
+    title: 'एलर्जी (Allergy)',
+    desc: 'धूल, धूप, मौसम या खान-पान से होने वाली एलर्जी — त्वचा पर चकत्ते, खुजली, बार-बार छींकें व ज़ुकाम का सौम्य उपचार।',
   },
   {
     icon: '🩺',
@@ -118,13 +128,19 @@ const faqs = [
     q: 'असर दिखने में कितना समय लगता है?',
     a: 'यह रोग की प्रकृति पर निर्भर करता है। नई शिकायतों में असर प्रायः जल्दी दिखता है, जबकि वर्षों पुराने रोगों में धैर्य के साथ नियमित दवा लेना आवश्यक होता है।',
   },
+  {
+    q: 'पहली मुलाक़ात में क्या होगा?',
+    a: 'पहली मुलाक़ात में डॉक्टर साहब आपकी पूरी बात — लक्षण, इतिहास, खान-पान और दिनचर्या — विस्तार से सुनते हैं, इसलिए थोड़ा समय लेकर आएँ। आपकी बताई हर बात पूरी तरह गोपनीय रखी जाती है।',
+  },
+  {
+    q: 'दूर रहने वाले रोगी क्या करें?',
+    a: 'दूसरे शहर या गाँव से आने वाले रोगी आने से पहले फ़ोन या WhatsApp पर संपर्क कर लें, ताकि क्लिनिक के समय और ज़रूरी जानकारी की पुष्टि हो जाए और आपको असुविधा न हो।',
+  },
 ];
 
 export default function Home() {
   return (
     <div id="top">
-      <Navbar />
-
       <main>
         <section className="hero">
           <div className="container hero-inner">
@@ -222,6 +238,11 @@ export default function Home() {
                 <li>भारत सरकार के आयुष मंत्रालय द्वारा मान्यता प्राप्त पद्धति</li>
                 <li>पुराने एवं बार-बार लौटने वाले रोगों में विशेष उपयोगी</li>
               </ul>
+              <p className="mt-20">
+                <Link className="btn btn-outline" href="/homeopathy">
+                  होम्योपैथी के बारे में विस्तार से जानें →
+                </Link>
+              </p>
             </div>
             <figure className="split-photo">
               <Image
@@ -249,6 +270,31 @@ export default function Home() {
                   <p>{s.desc}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="cta-band">
+          <div className="container cta-inner">
+            <div>
+              <h2>इनमें से कोई समस्या है?</h2>
+              <p>
+                बिना झिझक संपर्क करें — {site.experienceYears} वर्षों का अनुभव
+                आपकी सेवा में है।
+              </p>
+            </div>
+            <div className="hero-actions">
+              <a className="btn btn-light" href={`tel:${site.phone}`}>
+                📞 कॉल करें
+              </a>
+              <a
+                className="btn btn-light-outline"
+                href={`https://wa.me/${site.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                💬 WhatsApp
+              </a>
             </div>
           </div>
         </section>
@@ -356,25 +402,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="footer">
-        <div className="container">
-          <nav className="footer-links" aria-label="फ़ुटर मेन्यू">
-            <a href="#about">परिचय</a>
-            <a href="#specialties">रोग व उपचार</a>
-            <a href="#process">चिकित्सा-पद्धति</a>
-            <a href="#faq">प्रश्न-उत्तर</a>
-            <a href="#contact">संपर्क</a>
-          </nav>
-          <p>
-            © {new Date().getFullYear()} {site.clinicName} — {site.address}
-          </p>
-          <p className="disclaimer">
-            यह वेबसाइट केवल सामान्य जानकारी हेतु है। किसी भी रोग की चिकित्सा के
-            लिए कृपया चिकित्सक से व्यक्तिगत परामर्श अवश्य लें।
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }
