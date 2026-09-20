@@ -204,6 +204,7 @@ a {
 .hero-photo svg,
 .hero-photo img {
   width: 100%;
+  height: auto;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }

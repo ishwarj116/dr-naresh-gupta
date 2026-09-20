@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import { site } from '../lib/siteConfig';
+import doctorPhoto from '../public/doctor-clinic.jpg';
 
 const specialties = [
   {
@@ -48,18 +50,6 @@ const whyPoints = [
   },
 ];
 
-function DoctorPlaceholder() {
-  // असली फ़ोटो मिलने तक अस्थायी चित्र
-  return (
-    <svg viewBox="0 0 200 200" role="img" aria-label="डॉ. नरेश कुमार गुप्ता">
-      <rect width="200" height="200" rx="16" fill="#e8efe4" />
-      <circle cx="100" cy="78" r="34" fill="#9db98e" />
-      <path d="M40 178c6-38 30-56 60-56s54 18 60 56" fill="#9db98e" />
-      <text x="100" y="196" textAnchor="middle" fontSize="11" fill="#5a6e50" />
-    </svg>
-  );
-}
-
 export default function Home() {
   return (
     <>
@@ -108,8 +98,13 @@ export default function Home() {
               </div>
             </div>
             <figure className="hero-photo">
-              <DoctorPlaceholder />
-              <figcaption>{site.doctorName}</figcaption>
+              <Image
+                src={doctorPhoto}
+                alt={`${site.doctorName} अपने क्लिनिक में रोगियों को परामर्श देते हुए`}
+                priority
+                sizes="(min-width: 720px) 300px, 75vw"
+              />
+              <figcaption>क्लिनिक में रोगियों को परामर्श देते हुए</figcaption>
             </figure>
           </div>
         </section>
