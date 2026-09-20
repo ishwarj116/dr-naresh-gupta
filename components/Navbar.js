@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { site } from '../lib/siteConfig';
+import { PhoneIcon } from './Icons';
 
 const pages = [
-  { href: '/', label: '🏠 मुखपृष्ठ', match: 'home' },
-  { href: '/homeopathy', label: '📖 होम्योपैथी', match: 'homeopathy' },
-  { href: '/medicines', label: '💊 औषधियाँ', match: 'medicines' },
+  { href: '/', label: 'मुखपृष्ठ', match: 'home' },
+  { href: '/homeopathy', label: 'होम्योपैथी', match: 'homeopathy' },
+  { href: '/medicines', label: 'औषधियाँ', match: 'medicines' },
 ];
 
 const sectionsByPage = {
@@ -54,7 +55,7 @@ export default function Navbar() {
           </span>
         </Link>
         <a className="btn btn-solid topbar-call" href={`tel:${site.phone}`}>
-          📞 कॉल करें
+          <PhoneIcon /> कॉल करें
         </a>
       </div>
 

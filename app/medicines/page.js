@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { site } from '../../lib/siteConfig';
+import { PhoneIcon, WhatsAppIcon } from '../../components/Icons';
 import bottlesPhoto from '../../public/homeo-bottles.jpg';
 import globulesPhoto from '../../public/homeo-globules.jpg';
 
@@ -205,15 +206,15 @@ export default function MedicinesPage() {
           </div>
           <div className="hero-actions">
             <a className="btn btn-light" href={`tel:${site.phone}`}>
-              📞 कॉल करें
+              <PhoneIcon /> कॉल करें
             </a>
             <a
               className="btn btn-light-outline"
-              href={`https://wa.me/${site.whatsapp}`}
+              href={site.waHref}
               target="_blank"
               rel="noopener noreferrer"
             >
-              💬 WhatsApp
+              <WhatsAppIcon /> WhatsApp
             </a>
           </div>
         </div>

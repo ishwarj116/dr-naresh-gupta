@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { site } from '../../lib/siteConfig';
+import { PhoneIcon, WhatsAppIcon } from '../../components/Icons';
 import hahnemannPortrait from '../../public/hahnemann-portrait.jpg';
 import organonTitle from '../../public/organon-title.jpg';
 import globulesPhoto from '../../public/homeo-flower.jpg';
@@ -25,7 +26,7 @@ const principles = [
   {
     icon: '🔄',
     title: 'शक्तिकरण (पोटेंसी)',
-    desc: 'दवाओं को एक विशेष विधि से घोलकर और झटके देकर (सक्शन) तैयार किया जाता है, जिससे उनकी रोगनाशक शक्ति बढ़ती है और भौतिक मात्रा घटती है।',
+    desc: 'दवाओं को एक विशेष विधि से घोलकर और क्रमबद्ध झटके देकर तैयार किया जाता है, जिससे उनकी रोगनाशक शक्ति बढ़ती है और भौतिक मात्रा घटती है।',
   },
   {
     icon: '🧍',
@@ -94,7 +95,7 @@ export default function HomeopathyPage() {
           <h1>होम्योपैथी: एक संपूर्ण परिचय</h1>
           <p className="lead">
             दो सौ वर्षों से अधिक पुरानी, विश्व की प्रमुख सौम्य चिकित्सा
-            पद्धतियों में से एक। उसका इतिहास, सिद्धांत और भारत में स्थान।
+            पद्धतियों में से एक। इसका इतिहास, सिद्धांत और भारत में स्थान।
           </p>
         </div>
       </section>
@@ -255,15 +256,15 @@ export default function HomeopathyPage() {
           </div>
           <div className="hero-actions">
             <a className="btn btn-light" href={`tel:${site.phone}`}>
-              📞 कॉल करें
+              <PhoneIcon /> कॉल करें
             </a>
             <a
               className="btn btn-light-outline"
-              href={`https://wa.me/${site.whatsapp}`}
+              href={site.waHref}
               target="_blank"
               rel="noopener noreferrer"
             >
-              💬 WhatsApp
+              <WhatsAppIcon /> WhatsApp
             </a>
           </div>
         </div>

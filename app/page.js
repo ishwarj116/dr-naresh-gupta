@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroCanvas from '../components/HeroCanvas';
+import { PhoneIcon, WhatsAppIcon } from '../components/Icons';
 import { site } from '../lib/siteConfig';
 import doctorPhoto from '../public/doctor-clinic.jpg';
 import doctorPortrait from '../public/doctor-portrait.jpg';
@@ -150,6 +151,10 @@ const faqs = [
     a: 'पहली मुलाक़ात में डॉक्टर साहब आपकी पूरी बात (लक्षण, इतिहास, खान-पान और दिनचर्या) विस्तार से सुनते हैं, इसलिए थोड़ा समय लेकर आएँ। आपकी बताई हर बात पूरी तरह गोपनीय रखी जाती है।',
   },
   {
+    q: 'परामर्श शुल्क (फ़ीस) कितना है?',
+    a: 'परामर्श शुल्क सामान्य एवं किफ़ायती रखा गया है, और दवाएँ क्लिनिक से ही मिल जाती हैं। विवरण के लिए फ़ोन या WhatsApp पर पूछ सकते हैं।',
+  },
+  {
     q: 'दूर रहने वाले रोगी क्या करें?',
     a: 'दूसरे शहर या गाँव से आने वाले रोगी आने से पहले फ़ोन या WhatsApp पर संपर्क कर लें, ताकि क्लिनिक के समय और ज़रूरी जानकारी की पुष्टि हो जाए और आपको असुविधा न हो।',
   },
@@ -167,27 +172,25 @@ export default function Home() {
                 पिछले {site.experienceYears} वर्षों से आपकी सेवा में
               </p>
               <h1>
-                अनुभव, विश्वास और सौम्य चिकित्सा
-                <br />
+                अनुभव, विश्वास और सौम्य चिकित्सा{' '}
                 <span className="accent">{site.doctorName}</span>
               </h1>
               <p className="lead">
-                आदर्श कॉलोनी, रामपुर में {site.experienceYears} वर्षों से
-                होम्योपैथिक चिकित्सा द्वारा हज़ारों रोगियों को स्वास्थ्य लाभ। एड़ी व
-                तलवे का दर्द, मस्से, गोखरू, बवासीर, बुखार तथा जटिल एवं पुरानी
-                बीमारियों का सौम्य उपचार।
+                आदर्श कॉलोनी, रामपुर में होम्योपैथिक चिकित्सा द्वारा हज़ारों रोगियों
+                को स्वास्थ्य-लाभ। एड़ी व तलवे का दर्द, मस्से, गोखरू, बवासीर,
+                बुखार तथा जटिल पुरानी बीमारियों का सौम्य उपचार।
               </p>
               <div className="hero-actions">
                 <a className="btn btn-solid" href={`tel:${site.phone}`}>
-                  📞 अभी संपर्क करें
+                  <PhoneIcon /> अभी संपर्क करें
                 </a>
                 <a
                   className="btn btn-outline"
-                  href={`https://wa.me/${site.whatsapp}`}
+                  href={site.waHref}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  💬 WhatsApp पर पूछें
+                  <WhatsAppIcon /> WhatsApp पर पूछें
                 </a>
               </div>
               <ul className="trust-chips">
@@ -318,15 +321,15 @@ export default function Home() {
             </div>
             <div className="hero-actions">
               <a className="btn btn-light" href={`tel:${site.phone}`}>
-                📞 कॉल करें
+                <PhoneIcon /> कॉल करें
               </a>
               <a
                 className="btn btn-light-outline"
-                href={`https://wa.me/${site.whatsapp}`}
+                href={site.waHref}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                💬 WhatsApp
+                <WhatsAppIcon /> WhatsApp
               </a>
             </div>
           </div>
@@ -448,19 +451,19 @@ export default function Home() {
                 </a>
               </p>
               <p className="contact-line">
-                📞 <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+                <PhoneIcon /> <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
               </p>
               <div className="hero-actions">
                 <a className="btn btn-solid" href={`tel:${site.phone}`}>
-                  📞 कॉल करें
+                  <PhoneIcon /> कॉल करें
                 </a>
                 <a
                   className="btn btn-outline"
-                  href={`https://wa.me/${site.whatsapp}`}
+                  href={site.waHref}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  💬 WhatsApp
+                  <WhatsAppIcon /> WhatsApp
                 </a>
               </div>
             </div>

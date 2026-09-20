@@ -160,6 +160,18 @@ section[id] {
 /* ---------- pill sub-nav ---------- */
 .subnav-wrap {
   border-top: 1px solid var(--cream-dark);
+  position: relative;
+}
+
+.subnav-wrap::after {
+  content: '';
+  position: absolute;
+  inset-inline-end: 0;
+  top: 0;
+  bottom: 0;
+  width: 36px;
+  background: linear-gradient(to left, rgba(250, 246, 238, 0.95), transparent);
+  pointer-events: none;
 }
 
 .subnav {
@@ -179,9 +191,9 @@ section[id] {
 .pill {
   flex: 0 0 auto;
   text-decoration: none;
-  font-size: 0.87rem;
+  font-size: 0.93rem;
   font-weight: 600;
-  padding: 7px 15px;
+  padding: 10px 16px;
   border-radius: 999px;
   border: 1px solid #ddd3bc;
   color: var(--ink-soft);
@@ -368,11 +380,16 @@ section[id] {
 }
 
 .accent {
-  color: var(--gold);
-  background: linear-gradient(100deg, #a3763a, #d8b06a 55%, #b8894a);
+  color: #8a6430;
+  background: linear-gradient(100deg, #8a6430, #b8894a 55%, #8a6430);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.hero h1 .accent {
+  display: block;
+  margin-top: 6px;
 }
 
 .lead {
@@ -622,7 +639,7 @@ section[id] {
 
 .card p {
   color: var(--ink-soft);
-  font-size: 0.97rem;
+  font-size: 1rem;
 }
 
 /* ---------- process ---------- */
@@ -674,7 +691,7 @@ section[id] {
 
 .process-steps p {
   color: var(--ink-soft);
-  font-size: 0.97rem;
+  font-size: 1rem;
 }
 
 .process-photo img {
@@ -718,7 +735,7 @@ section[id] {
 
 .why-item p {
   color: var(--ink-soft);
-  font-size: 0.97rem;
+  font-size: 1rem;
 }
 
 /* ---------- faq ---------- */
@@ -847,8 +864,8 @@ section[id] {
 
 .disclaimer {
   margin-top: 8px;
-  font-size: 0.8rem;
-  opacity: 0.75;
+  font-size: 0.85rem;
+  color: #b9c4b0;
   max-width: 640px;
   margin-inline: auto;
 }
@@ -873,7 +890,7 @@ section[id] {
 }
 
 .crumbs {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--ink-soft);
   margin-bottom: 14px;
 }
@@ -928,7 +945,7 @@ section[id] {
 
 .book-year {
   font-family: var(--font-heading), serif;
-  color: var(--gold);
+  color: #8a6430;
   font-size: 0.95rem;
 }
 
@@ -959,8 +976,8 @@ section[id] {
 
 .credit {
   display: block;
-  font-size: 0.75rem;
-  opacity: 0.7;
+  font-size: 0.78rem;
+  color: #6b7261;
 }
 
 /* ---------- myths ---------- */
@@ -1043,7 +1060,6 @@ section[id] {
 
 .t-text {
   color: var(--ink-soft);
-  font-style: italic;
   margin-bottom: 16px;
 }
 
@@ -1053,7 +1069,7 @@ section[id] {
 }
 
 .t-meta {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--ink-soft);
 }
 
@@ -1169,6 +1185,70 @@ section[id] {
   .topbar-call {
     padding: 8px 12px;
     font-size: 0.85rem;
+  }
+}
+
+/* ---------- inline icons ---------- */
+.icon {
+  vertical-align: -3px;
+  margin-inline-end: 7px;
+}
+
+/* ---------- focus visibility ---------- */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.btn:focus-visible,
+.pill:focus-visible {
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* ---------- mobile call bar ---------- */
+.callbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  gap: 1px;
+  background: var(--green-dark);
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0 -4px 18px rgba(46, 64, 42, 0.25);
+}
+
+.callbar a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  background: var(--green);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.callbar a:last-child {
+  background: #1f7a43;
+}
+
+@media (max-width: 719.98px) {
+  body {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 720px) {
+  .callbar {
+    display: none;
   }
 }
 
