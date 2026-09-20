@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { site } from '../lib/siteConfig';
 import doctorPhoto from '../public/doctor-clinic.jpg';
+import doctorPortrait from '../public/doctor-portrait.jpg';
 import bottlesPhoto from '../public/homeo-bottles.jpg';
 import globulesPhoto from '../public/homeo-globules.jpg';
 
@@ -111,6 +112,20 @@ const whyPoints = [
   },
 ];
 
+const testimonials = [
+  {
+    name: 'श्री रमीस कुमार सिंह',
+    meta: 'सर्वाइकल (गर्दन का दर्द) — 10 वर्ष पुरानी समस्या',
+    text: 'पिछले दस वर्षों से गर्दन के दर्द से परेशान था — उठने-बैठने तक में कष्ट होता था। डॉक्टर साहब की दवा नियमित लेने से धीरे-धीरे पूरा आराम मिल गया। अब बिना किसी तकलीफ़ के अपना काम कर पाता हूँ।',
+  },
+  {
+    name: 'श्री अमित कुमार सिंह',
+    place: 'रामपुर, उत्तर प्रदेश',
+    meta: 'चर्म रोग — 2 वर्ष पुरानी समस्या',
+    text: 'दो साल से त्वचा के रोग से परेशान था। अंग्रेज़ी दवाएँ खाते-खाते थक गया, पर कोई लाभ नहीं हुआ। डॉक्टर साहब की होम्योपैथिक दवा से कुछ ही महीनों में त्वचा बिल्कुल साफ़ हो गई। मैं उनका हृदय से आभारी हूँ।',
+  },
+];
+
 const faqs = [
   {
     q: 'क्या पहले से समय (अपॉइंटमेंट) लेना ज़रूरी है?',
@@ -203,21 +218,31 @@ export default function Home() {
         </section>
 
         <section className="section" id="about">
-          <div className="container narrow">
-            <h2>परिचय</h2>
-            <p>
-              {site.doctorName} विगत {site.experienceYears} वर्षों से आदर्श
-              कॉलोनी, रामपुर में होम्योपैथिक चिकित्सा के माध्यम से रोगियों की सेवा
-              कर रहे हैं। पाँच दशकों से भी लंबी इस यात्रा में उन्होंने साधारण
-              सर्दी-बुखार से लेकर वर्षों पुरानी जटिल बीमारियों तक, हर प्रकार के
-              रोगियों का उपचार किया है।
-            </p>
-            <p>
-              उनकी पहचान किसी विज्ञापन से नहीं, बल्कि स्वस्थ हुए रोगियों के
-              विश्वास से बनी है — आज भी उनके पास आने वाले अधिकांश रोगी पुराने
-              रोगियों की सलाह पर ही आते हैं। यही उनकी चिकित्सा की सबसे बड़ी पहचान
-              है।
-            </p>
+          <div className="container split">
+            <div className="split-text">
+              <h2>परिचय</h2>
+              <p>
+                {site.doctorName} विगत {site.experienceYears} वर्षों से आदर्श
+                कॉलोनी, रामपुर में होम्योपैथिक चिकित्सा के माध्यम से रोगियों की
+                सेवा कर रहे हैं। पाँच दशकों से भी लंबी इस यात्रा में उन्होंने
+                साधारण सर्दी-बुखार से लेकर वर्षों पुरानी जटिल बीमारियों तक, हर
+                प्रकार के रोगियों का उपचार किया है।
+              </p>
+              <p>
+                उनकी पहचान किसी विज्ञापन से नहीं, बल्कि स्वस्थ हुए रोगियों के
+                विश्वास से बनी है — आज भी उनके पास आने वाले अधिकांश रोगी पुराने
+                रोगियों की सलाह पर ही आते हैं। यही उनकी चिकित्सा की सबसे बड़ी
+                पहचान है।
+              </p>
+            </div>
+            <figure className="split-photo portrait">
+              <Image
+                src={doctorPortrait}
+                alt={site.doctorName}
+                sizes="(min-width: 720px) 400px, 82vw"
+              />
+              <figcaption>{site.doctorName}</figcaption>
+            </figure>
           </div>
         </section>
 
@@ -344,7 +369,30 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section section-tint" id="faq">
+        <section className="section section-tint" id="testimonials">
+          <div className="container">
+            <h2>रोगियों के अनुभव</h2>
+            <p className="section-sub">
+              हमारी सबसे बड़ी पूँजी — स्वस्थ हुए रोगियों का विश्वास:
+            </p>
+            <div className="testimonial-grid">
+              {testimonials.map((t) => (
+                <blockquote className="testimonial-card" key={t.name}>
+                  <p className="t-text">{t.text}</p>
+                  <footer>
+                    <p className="t-name">{t.name}</p>
+                    <p className="t-meta">
+                      {t.meta}
+                      {t.place ? ` · ${t.place}` : ''}
+                    </p>
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="faq">
           <div className="container narrow">
             <h2>प्रश्न-उत्तर</h2>
             <div className="faq-list">
@@ -358,7 +406,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section" id="contact">
+        <section className="section section-tint" id="contact">
           <div className="container contact-grid">
             <div>
               <h2>क्लिनिक का समय</h2>
