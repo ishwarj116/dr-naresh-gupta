@@ -14,7 +14,7 @@ export default function Footer() {
           <Link href="/#contact">संपर्क</Link>
         </nav>
         <p>
-          © {new Date().getFullYear()} {site.clinicName} — {site.address}
+          © {new Date().getFullYear()} {site.clinicName}, {site.address}
         </p>
         <p className="disclaimer">
           यह वेबसाइट केवल सामान्य जानकारी हेतु है। किसी भी रोग की चिकित्सा के लिए
