@@ -1179,6 +1179,161 @@ section[id] {
   color: var(--green-dark);
 }
 
+/* ---------- philosophy (मूल मंत्र) ---------- */
+.philosophy {
+  background: linear-gradient(160deg, #24371f 0%, #2c4429 45%, #3e5c3a 100%);
+  color: #dfe8d6;
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy::before {
+  content: '';
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  top: -180px;
+  right: -140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(233, 213, 169, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.philosophy h2 {
+  color: #fff;
+}
+
+.big-quote {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1.45rem, 3.4vw, 2rem);
+  line-height: 1.45;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, #e9d5a9 20%, #fff8e7 50%, #e9d5a9 80%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.values {
+  list-style: none;
+  display: grid;
+  gap: 14px;
+}
+
+.value-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 14px 16px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.value-item:hover {
+  transform: translateX(6px);
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.value-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: rgba(233, 213, 169, 0.16);
+  font-size: 1.25rem;
+  position: relative;
+}
+
+.value-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(233, 213, 169, 0.55);
+  animation: ringpulse 3.4s ease-out infinite;
+}
+
+.value-item:nth-child(2) .value-icon::after {
+  animation-delay: 0.85s;
+}
+
+.value-item:nth-child(3) .value-icon::after {
+  animation-delay: 1.7s;
+}
+
+.value-item:nth-child(4) .value-icon::after {
+  animation-delay: 2.55s;
+}
+
+@keyframes ringpulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  70%,
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+.value-item h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+}
+
+.value-item p {
+  color: #c2cfb4;
+  font-size: 0.95rem;
+}
+
+.philosophy-tagline {
+  margin-top: 24px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e9d5a9;
+}
+
+.philosophy-photo {
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.philosophy-photo img {
+  border-radius: 0;
+  box-shadow: none;
+  animation: kenburns 18s ease-in-out infinite alternate;
+}
+
+.philosophy-photo:hover img {
+  transform: none;
+}
+
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
 /* ---------- testimonials ---------- */
 .testimonial-grid {
   display: grid;

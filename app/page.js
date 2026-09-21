@@ -9,6 +9,7 @@ import { useLang } from '../lib/i18n';
 import doctorPhoto from '../public/doctor-clinic.jpg';
 import doctorPortrait from '../public/doctor-portrait.jpg';
 import doctorPoster from '../public/doctor-poster.jpg';
+import doctorGarden from '../public/doctor-garden.jpg';
 import bottlesPhoto from '../public/homeo-bottles.jpg';
 import globulesPhoto from '../public/homeo-globules.jpg';
 
@@ -302,6 +303,18 @@ const T = {
       ],
       imgAlt: 'होम्योपैथी: सुरक्षित, प्राकृतिक एवं संपूर्ण चिकित्सा',
     },
+    philosophy: {
+      heading: 'हमारा मूल मंत्र',
+      quote: '"स्वास्थ्य ही सबसे बड़ा धन है।"',
+      values: [
+        { icon: '🌱', title: 'प्राकृतिक चिकित्सा', desc: 'प्रकृति से प्राप्त सौम्य, सुरक्षित औषधियाँ' },
+        { icon: '🤝', title: 'व्यक्तिगत उपचार', desc: 'हर रोगी के लिए अलग दवा, अलग परामर्श' },
+        { icon: '💚', title: 'मन और शरीर दोनों', desc: 'संपूर्ण स्वास्थ्य पर ध्यान' },
+        { icon: '👨‍👩‍👧‍👦', title: 'हर आयु के लिए', desc: 'शिशु से बुज़ुर्ग तक, सबके लिए होम्योपैथी' },
+      ],
+      tagline: 'देखभाल · उपचार · सशक्त जीवन',
+      imgAlt: 'डॉ. नरेश कुमार गुप्ता अपने क्लिनिक के बाहर',
+    },
     testimonials: {
       heading: 'रोगियों के अनुभव',
       sub: 'हमारी सबसे बड़ी पूँजी: स्वस्थ हुए रोगियों का विश्वास',
@@ -528,6 +541,18 @@ const T = {
         },
       ],
       imgAlt: 'Homeopathy: safe, natural and holistic care',
+    },
+    philosophy: {
+      heading: 'Our Guiding Belief',
+      quote: '"Health is the greatest wealth."',
+      values: [
+        { icon: '🌱', title: 'Natural Healing', desc: 'Gentle, safe medicines drawn from nature' },
+        { icon: '🤝', title: 'Personalized Treatment', desc: 'A different medicine and plan for every patient' },
+        { icon: '💚', title: 'Mind and Body Together', desc: 'Care for your health as a whole' },
+        { icon: '👨‍👩‍👧‍👦', title: 'For Every Age', desc: 'Homeopathy for everyone, from infants to the elderly' },
+      ],
+      tagline: 'Caring · Healing · Empowering Lives',
+      imgAlt: 'Dr. Naresh Kumar Gupta outside his clinic',
     },
     testimonials: {
       heading: 'Patient Stories',
@@ -796,6 +821,36 @@ export default function Home() {
                 sizes="(min-width: 720px) 400px, 82vw"
               />
             </figure>
+          </div>
+        </section>
+
+        <section className="section philosophy" id="philosophy">
+          <div className="container split">
+            <figure className="split-photo philosophy-photo">
+              <Image
+                src={doctorGarden}
+                alt={t.philosophy.imgAlt}
+                sizes="(min-width: 720px) 480px, 92vw"
+              />
+            </figure>
+            <div className="split-text">
+              <h2>{t.philosophy.heading}</h2>
+              <p className="big-quote">{t.philosophy.quote}</p>
+              <ul className="values">
+                {t.philosophy.values.map((v) => (
+                  <li className="value-item" key={v.title}>
+                    <span className="value-icon" aria-hidden="true">
+                      {v.icon}
+                    </span>
+                    <div>
+                      <h3>{v.title}</h3>
+                      <p>{v.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <p className="philosophy-tagline">{t.philosophy.tagline}</p>
+            </div>
           </div>
         </section>
 

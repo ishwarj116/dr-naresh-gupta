@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { site } from '../../lib/siteConfig';
 import { useLang } from '../../lib/i18n';
 import { PhoneIcon, WhatsAppIcon } from '../../components/Icons';
-import bottlesPhoto from '../../public/homeo-bottles.jpg';
+import medicinesPoster from '../../public/medicines-poster.jpg';
 import globulesPhoto from '../../public/homeo-globules.jpg';
 
 const T = {
@@ -192,7 +192,7 @@ export default function MedicinesContent() {
           </div>
           <figure className="split-photo">
             <Image
-              src={bottlesPhoto}
+              src={medicinesPoster}
               alt={t.bottlesAlt}
               sizes="(min-width: 720px) 480px, 92vw"
             />

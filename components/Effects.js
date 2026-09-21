@@ -15,6 +15,7 @@ const REVEAL_SELECTORS = [
   '.split-photo',
   '.checklist li',
   '.myth-card',
+  '.value-item',
   '.stat',
   '.timings',
   '.contact-line',
