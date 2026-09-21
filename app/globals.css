@@ -68,17 +68,28 @@ section[id] {
   scroll-margin-top: calc(var(--topbar-h) + 12px);
 }
 
-/* ---------- motion: scroll reveal ---------- */
+/* ---------- motion: scroll reveal ----------
+   animation (transition नहीं) इसलिए: क्लास कभी हटानी नहीं पड़ती,
+   कोई cleanup-टाइमर नहीं, कोई layer-drop झिलमिलाहट नहीं */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
-  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
-  will-change: opacity, transform;
 }
 
 .reveal.in-view {
   opacity: 1;
-  transform: none;
+  animation: reveal-in 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: var(--rd, 0ms);
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .section h2.reveal::after {
@@ -89,16 +100,6 @@ section[id] {
 .section h2.reveal.in-view::after,
 .section h2.did-reveal::after {
   width: 56px;
-}
-
-/* ---------- motion: cross-page transition ---------- */
-@view-transition {
-  navigation: auto;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 0.25s;
 }
 
 /* ---------- top bar ---------- */

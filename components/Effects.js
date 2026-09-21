@@ -49,7 +49,7 @@ export default function Effects() {
         }
         const n = siblingCount.get(el.parentElement) || 0;
         siblingCount.set(el.parentElement, n + 1);
-        el.style.transitionDelay = `${Math.min(n, 8) * 70}ms`;
+        el.style.setProperty('--rd', `${Math.min(n, 8) * 70}ms`);
         el.classList.add('reveal');
         els.push(el);
       });
@@ -59,11 +59,6 @@ export default function Effects() {
             if (!e.isIntersecting) return;
             io.unobserve(e.target);
             e.target.classList.add('in-view');
-            setTimeout(() => {
-              e.target.classList.remove('reveal', 'in-view');
-              e.target.classList.add('did-reveal');
-              e.target.style.transitionDelay = '';
-            }, 1400);
           });
         },
         { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
