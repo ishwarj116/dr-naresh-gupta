@@ -83,11 +83,6 @@ const T = {
           desc: 'खूनी एवं बादी बवासीर में बिना ऑपरेशन, होम्योपैथिक दवाओं द्वारा राहत दिलाने का लंबा अनुभव।',
         },
         {
-          icon: '🧠',
-          title: 'मिर्गी के दौरे (Seizures)',
-          desc: 'मिर्गी के दौरों से पीड़ित रोगियों की दीर्घकालिक देखभाल का अनुभव, नियमित परामर्श एवं सतत होम्योपैथिक चिकित्सा के साथ।',
-        },
-        {
           icon: '🦴',
           title: 'सर्वाइकल (गर्दन का दर्द)',
           desc: 'सर्वाइकल स्पॉन्डिलाइटिस से होने वाली गर्दन की जकड़न, दर्द तथा हाथों में झनझनाहट का सौम्य होम्योपैथिक उपचार।',
@@ -313,11 +308,6 @@ const T = {
           icon: '🪷',
           title: 'Piles',
           desc: 'Long experience of relieving bleeding and non-bleeding piles with medicines, without operation.',
-        },
-        {
-          icon: '🧠',
-          title: 'Seizures',
-          desc: 'Experience in the long-term care of patients with seizures, through regular consultation and continuous homeopathic treatment.',
         },
         {
           icon: '🦴',

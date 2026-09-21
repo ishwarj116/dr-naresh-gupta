@@ -3,8 +3,9 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-// three.js से बना हीरो बैकग्राउंड: गहराई (depth) में तैरते चमकते कण,
-// माउस से हल्का पैरालैक्स। ऑफ़-स्क्रीन/छिपे टैब में रुक जाता है।
+// three.js हीरो बैकग्राउंड: धीरे-धीरे साँस लेती हुई शांत 3D तरंगें
+// (सौम्य हरे रंग की wireframe लहरें + हल्की सुनहरी परत), माउस पैरालैक्स के साथ।
+// ऑफ़-स्क्रीन/छिपे टैब में रुक जाता है; reduced-motion पर नहीं चलता।
 export default function Hero3D() {
   const ref = useRef(null);
 
@@ -22,66 +23,28 @@ export default function Hero3D() {
     mount.appendChild(renderer.domElement);
 
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, w / h, 1, 120);
-    camera.position.z = 30;
+    const camera = new THREE.PerspectiveCamera(55, w / h, 1, 200);
+    camera.position.set(0, 7, 26);
 
-    // गोल, धुँधले कण की स्प्राइट-टेक्सचर
-    const c = document.createElement('canvas');
-    c.width = c.height = 64;
-    const cx = c.getContext('2d');
-    const grad = cx.createRadialGradient(32, 32, 0, 32, 32, 32);
-    grad.addColorStop(0, 'rgba(255,255,255,1)');
-    grad.addColorStop(0.45, 'rgba(255,255,255,0.45)');
-    grad.addColorStop(1, 'rgba(255,255,255,0)');
-    cx.fillStyle = grad;
-    cx.fillRect(0, 0, 64, 64);
-    const tex = new THREE.CanvasTexture(c);
+    const makeWave = (color, opacity, yOffset) => {
+      const geo = new THREE.PlaneGeometry(150, 70, 90, 34);
+      const mat = new THREE.MeshBasicMaterial({
+        color,
+        wireframe: true,
+        transparent: true,
+        opacity,
+        depthWrite: false,
+      });
+      const mesh = new THREE.Mesh(geo, mat);
+      mesh.rotation.x = -Math.PI / 2.4;
+      mesh.position.y = yOffset;
+      scene.add(mesh);
+      return { geo, mat, mesh, base: geo.attributes.position.array.slice() };
+    };
 
-    const palette = [
-      new THREE.Color('#7aa266'),
-      new THREE.Color('#56724f'),
-      new THREE.Color('#b8894a'),
-      new THREE.Color('#e9d5a9'),
-      new THREE.Color('#ffffff'),
-    ];
-
-    const N = 150;
-    const positions = new Float32Array(N * 3);
-    const colors = new Float32Array(N * 3);
-    const speeds = new Float32Array(N);
-    const phases = new Float32Array(N);
-    const X = 42;
-    const Y = 20;
-    const Z = 26;
-    for (let i = 0; i < N; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 2 * X;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 2 * Y;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 2 * Z;
-      const col = palette[Math.floor(Math.random() * palette.length)];
-      colors[i * 3] = col.r;
-      colors[i * 3 + 1] = col.g;
-      colors[i * 3 + 2] = col.b;
-      speeds[i] = 0.008 + Math.random() * 0.025;
-      phases[i] = Math.random() * Math.PI * 2;
-    }
-
-    const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const mat = new THREE.PointsMaterial({
-      size: 1.7,
-      map: tex,
-      transparent: true,
-      opacity: 0.55,
-      vertexColors: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-      sizeAttenuation: true,
-    });
-
-    const points = new THREE.Points(geo, mat);
-    scene.add(points);
+    const waveGreen = makeWave('#7aa266', 0.3, -9);
+    const waveGold = makeWave('#b8894a', 0.14, -11.5);
+    const waves = [waveGreen, waveGold];
 
     let mx = 0;
     let my = 0;
@@ -89,23 +52,26 @@ export default function Hero3D() {
     let running = true;
     let t = 0;
 
-    const tick = () => {
-      if (!running) return;
-      t += 0.008;
+    const animateWave = ({ geo, base }, tt, amp, f1, f2) => {
       const pos = geo.attributes.position.array;
-      for (let i = 0; i < N; i++) {
-        pos[i * 3 + 1] += speeds[i];
-        pos[i * 3] += Math.sin(t * 2 + phases[i]) * 0.01;
-        if (pos[i * 3 + 1] > Y) {
-          pos[i * 3 + 1] = -Y;
-          pos[i * 3] = (Math.random() - 0.5) * 2 * X;
-        }
+      for (let i = 0; i < pos.length; i += 3) {
+        const x = base[i];
+        const y = base[i + 1];
+        pos[i + 2] =
+          Math.sin(x * f1 + tt) * Math.cos(y * f2 + tt * 0.7) * amp +
+          Math.sin((x + y) * 0.05 + tt * 0.5) * amp * 0.6;
       }
       geo.attributes.position.needsUpdate = true;
-      points.rotation.y = Math.sin(t * 0.4) * 0.05;
-      camera.position.x += (mx * 4 - camera.position.x) * 0.05;
-      camera.position.y += (-my * 2.5 - camera.position.y) * 0.05;
-      camera.lookAt(0, 0, 0);
+    };
+
+    const tick = () => {
+      if (!running) return;
+      t += 0.012;
+      animateWave(waveGreen, t, 2.3, 0.14, 0.18);
+      animateWave(waveGold, t * 0.8 + 2, 2.8, 0.11, 0.15);
+      camera.position.x += (mx * 5 - camera.position.x) * 0.04;
+      camera.position.y += (7 - my * 3 - camera.position.y) * 0.04;
+      camera.lookAt(0, -2, 0);
       renderer.render(scene, camera);
       raf = requestAnimationFrame(tick);
     };
@@ -146,9 +112,10 @@ export default function Hero3D() {
       document.removeEventListener('visibilitychange', onVis);
       parent.removeEventListener('pointermove', onMove);
       window.removeEventListener('resize', onResize);
-      geo.dispose();
-      mat.dispose();
-      tex.dispose();
+      waves.forEach(({ geo, mat }) => {
+        geo.dispose();
+        mat.dispose();
+      });
       renderer.dispose();
       if (renderer.domElement.parentNode === mount) {
         mount.removeChild(renderer.domElement);
