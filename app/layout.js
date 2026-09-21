@@ -2,8 +2,8 @@ import { Tiro_Devanagari_Hindi, Mukta } from 'next/font/google';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Effects from '../components/Effects';
-import { PhoneIcon, WhatsAppIcon } from '../components/Icons';
-import { site } from '../lib/siteConfig';
+import CallBar from '../components/CallBar';
+import { LanguageProvider } from '../lib/i18n';
 import './globals.css';
 
 const headingFont = Tiro_Devanagari_Hindi({
@@ -22,13 +22,13 @@ const SITE_URL = 'https://ishwarj116.github.io/dr-naresh-gupta';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title: 'डॉ. नरेश कुमार गुप्ता | होम्योपैथिक चिकित्सक | आदर्श कॉलोनी, रामपुर',
+  title: 'डॉ. नरेश कुमार गुप्ता | होम्योपैथिक चिकित्सक | रामपुर व गुरुग्राम',
   description:
-    '51 वर्षों के अनुभव के साथ होम्योपैथिक चिकित्सा। एड़ी व तलवे का दर्द, मस्से, गोखरू, बवासीर, बुखार तथा जटिल एवं पुरानी बीमारियों का सौम्य होम्योपैथिक उपचार।',
+    '51 वर्षों के अनुभव के साथ होम्योपैथिक चिकित्सा। एड़ी व तलवे का दर्द, मस्से, गोखरू, बवासीर, बुखार तथा जटिल एवं पुरानी बीमारियों का सौम्य होम्योपैथिक उपचार। Homeopathic physician with 51 years of experience — Rampur (UP) & Gurugram.',
   openGraph: {
     title: 'डॉ. नरेश कुमार गुप्ता | होम्योपैथिक चिकित्सक',
     description:
-      '51 वर्षों का अनुभव। जटिल एवं पुरानी बीमारियों का सौम्य होम्योपैथिक उपचार। आदर्श कॉलोनी, रामपुर।',
+      '51 वर्षों का अनुभव। जटिल एवं पुरानी बीमारियों का सौम्य होम्योपैथिक उपचार। रामपुर (उ.प्र.) व गुरुग्राम।',
     images: ['/og.jpg'],
     locale: 'hi_IN',
     type: 'website',
@@ -43,13 +43,23 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Physician',
   name: 'डॉ. नरेश कुमार गुप्ता',
+  alternateName: 'Dr. Naresh Kumar Gupta',
   medicalSpecialty: 'Homeopathic',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Rampur',
-    addressRegion: 'Uttar Pradesh',
-    addressCountry: 'IN',
-  },
+  address: [
+    {
+      '@type': 'PostalAddress',
+      addressLocality: 'Rampur',
+      addressRegion: 'Uttar Pradesh',
+      addressCountry: 'IN',
+    },
+    {
+      '@type': 'PostalAddress',
+      streetAddress: 'House No. 303, Sector 14',
+      addressLocality: 'Gurugram',
+      addressRegion: 'Haryana',
+      addressCountry: 'IN',
+    },
+  ],
   telephone: '+919719547096',
   url: `${SITE_URL}/`,
   image: `${SITE_URL}/og.jpg`,
@@ -64,18 +74,13 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Effects />
-        <Navbar />
-        {children}
-        <Footer />
-        <div className="callbar">
-          <a href={`tel:${site.phone}`}>
-            <PhoneIcon /> कॉल करें
-          </a>
-          <a href={site.waHref} target="_blank" rel="noopener noreferrer">
-            <WhatsAppIcon /> WhatsApp
-          </a>
-        </div>
+        <LanguageProvider>
+          <Effects />
+          <Navbar />
+          {children}
+          <Footer />
+          <CallBar />
+        </LanguageProvider>
       </body>
     </html>
   );

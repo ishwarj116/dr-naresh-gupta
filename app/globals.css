@@ -1188,10 +1188,70 @@ section[id] {
   }
 }
 
+.fineprint {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.footer-cert {
+  color: #e6ecdf;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.contact-line strong {
+  color: var(--green-dark);
+  font-size: 1.05rem;
+}
+
+.policy-block {
+  margin-bottom: 34px;
+}
+
+.policy-block h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+}
+
+.hero-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
 /* ---------- inline icons ---------- */
 .icon {
+  display: inline-block;
   vertical-align: -3px;
   margin-inline-end: 7px;
+}
+
+/* ---------- topbar actions & language toggle ---------- */
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.lang-toggle {
+  border: 1.5px solid var(--green);
+  background: #fff;
+  color: var(--green-dark);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.lang-toggle:hover {
+  background: var(--green-soft);
+  transform: translateY(-1px);
 }
 
 /* ---------- focus visibility ---------- */
