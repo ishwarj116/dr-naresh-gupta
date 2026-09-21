@@ -18,7 +18,7 @@ const bodyFont = Mukta({
   variable: '--font-body',
 });
 
-const SITE_URL = 'https://ishwarj116.github.io/dr-naresh-gupta';
+const SITE_URL = 'https://nareshhomeo.com';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
