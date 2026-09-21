@@ -693,6 +693,25 @@ section[id] {
   font-size: 0.72rem;
 }
 
+/* ---------- pouring bottle (जीवित फ़ोटो) ---------- */
+.pour-wrap {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.pour-wrap img {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.pour-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
 /* ---------- specialty cards ---------- */
 .cards {
   display: grid;

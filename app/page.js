@@ -10,7 +10,7 @@ import doctorPhoto from '../public/doctor-clinic.jpg';
 import doctorPortrait from '../public/doctor-portrait.jpg';
 import doctorPoster from '../public/doctor-poster.jpg';
 import doctorGarden from '../public/doctor-garden.jpg';
-import bottlesPhoto from '../public/homeo-bottles.jpg';
+import PouringBottle from '../components/PouringBottle';
 import doctorConsult from '../public/doctor-consult.jpg';
 
 const Hero3D = dynamic(() => import('../components/Hero3D'), { ssr: false });
@@ -723,11 +723,7 @@ export default function Home() {
               </p>
             </div>
             <figure className="split-photo">
-              <Image
-                src={bottlesPhoto}
-                alt={t.homeo.imgAlt}
-                sizes="(min-width: 720px) 480px, 92vw"
-              />
+              <PouringBottle alt={t.homeo.imgAlt} />
             </figure>
           </div>
         </section>
