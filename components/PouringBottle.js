@@ -8,9 +8,9 @@ import pelletsPour from '../public/pellets-pour.jpg';
 // canvas फ़ोटो के ऊपर है; गोलियाँ गुरुत्व से गिरकर ढेर के पास घुल जाती हैं।
 // reduced-motion पर सिर्फ़ स्थिर फ़ोटो दिखती है।
 
-// फ़ोटो के अनुपात में स्थितियाँ (0-1): बोतल का मुँह और ढेर
-const MOUTH = { x: 0.415, y: 0.3 };
-const PILE_Y = 0.82;
+// फ़ोटो के अनुपात में बोतल के मुँह की स्थिति (0-1)
+const MOUTH = { x: 0.455, y: 0.56 };
+const END_Y = 1.04;
 
 export default function PouringBottle({ alt }) {
   const wrapRef = useRef(null);
@@ -44,14 +44,13 @@ export default function PouringBottle({ alt }) {
     ro.observe(wrap);
 
     const spawn = () => ({
-      x: MOUTH.x * w + (Math.random() - 0.5) * w * 0.012,
-      y: MOUTH.y * h + Math.random() * h * 0.01,
-      vx: (0.2 + Math.random() * 0.5) * (w / 900),
-      vy: (0.4 + Math.random() * 0.8) * (h / 900),
-      r0: (0.009 + Math.random() * 0.005) * w,
+      x: MOUTH.x * w + (Math.random() - 0.5) * w * 0.018,
+      y: MOUTH.y * h + Math.random() * h * 0.012,
+      vx: (0.25 + Math.random() * 0.55) * (w / 900),
+      vy: (0.5 + Math.random() * 0.9) * (h / 900),
+      r0: (0.010 + Math.random() * 0.006) * w,
       a: 1,
       wob: Math.random() * Math.PI * 2,
-      settled: false,
     });
 
     // फ़ोटो की असली गोलियों जैसी दिखावट: ऊपर-बाएँ हाइलाइट, गर्म धूसर किनारा,
@@ -59,21 +58,9 @@ export default function PouringBottle({ alt }) {
     const draw = (p) => {
       const prog = Math.min(
         1,
-        Math.max(0, (p.y - MOUTH.y * h) / ((PILE_Y - MOUTH.y) * h))
+        Math.max(0, (p.y - MOUTH.y * h) / ((END_Y - MOUTH.y) * h))
       );
-      const rad = p.r0 * (0.8 + 1.15 * prog);
-      if (prog > 0.85 || p.settled) {
-        const sh = ctx.createRadialGradient(
-          p.x, p.y + rad * 0.9, 0,
-          p.x, p.y + rad * 0.9, rad * 1.4
-        );
-        sh.addColorStop(0, `rgba(70,58,38,${0.22 * p.a})`);
-        sh.addColorStop(1, 'rgba(70,58,38,0)');
-        ctx.fillStyle = sh;
-        ctx.beginPath();
-        ctx.ellipse(p.x, p.y + rad * 0.9, rad * 1.4, rad * 0.5, 0, 0, Math.PI * 2);
-        ctx.fill();
-      }
+      const rad = p.r0 * (0.85 + 1.0 * prog);
       const g = ctx.createRadialGradient(
         p.x - rad * 0.38, p.y - rad * 0.42, rad * 0.1,
         p.x, p.y, rad
@@ -108,20 +95,13 @@ export default function PouringBottle({ alt }) {
       }
       const grav = 0.06 * (h / 900);
       ps.forEach((p) => {
-        if (!p.settled) {
-          p.wob += 0.1;
-          p.vy += grav;
-          p.x += p.vx + Math.sin(p.wob) * 0.25;
-          p.y += p.vy;
-          if (p.y >= PILE_Y * h + (Math.random() - 0.5) * h * 0.02) {
-            p.settled = true;
-          }
-        } else {
-          p.a -= 0.03;
-        }
+        p.wob += 0.1;
+        p.vy += grav;
+        p.x += p.vx + Math.sin(p.wob) * 0.25;
+        p.y += p.vy;
         draw(p);
       });
-      ps = ps.filter((p) => p.a > 0);
+      ps = ps.filter((p) => p.y < h + p.r0 * 4);
       raf = requestAnimationFrame(tick);
     };
 
