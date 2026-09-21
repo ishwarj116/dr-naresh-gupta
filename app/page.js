@@ -14,6 +14,63 @@ import globulesPhoto from '../public/homeo-globules.jpg';
 
 const Hero3D = dynamic(() => import('../components/Hero3D'), { ssr: false });
 
+// परिचय सेक्शन की सजावट: तैरती सफ़ेद गोलियाँ (होम्योपैथिक गोलियों जैसी) + चमकते सितारे
+const globules = [
+  { left: '4%', top: '12%', size: 18, dur: '7s', delay: '0s' },
+  { left: '10%', top: '68%', size: 12, dur: '9s', delay: '1.2s' },
+  { left: '20%', top: '30%', size: 9, dur: '8s', delay: '0.6s' },
+  { left: '46%', top: '8%', size: 14, dur: '10s', delay: '2s' },
+  { left: '60%', top: '80%', size: 16, dur: '8.5s', delay: '0.3s' },
+  { left: '78%', top: '16%', size: 11, dur: '7.5s', delay: '1.6s' },
+  { left: '90%', top: '55%', size: 20, dur: '11s', delay: '0.9s' },
+  { left: '94%', top: '86%', size: 10, dur: '9.5s', delay: '2.4s' },
+];
+
+const sparkles = [
+  { left: '7%', top: '40%', size: 15, dur: '3.6s', delay: '0s' },
+  { left: '28%', top: '78%', size: 11, dur: '4.4s', delay: '1s' },
+  { left: '52%', top: '90%', size: 13, dur: '3.9s', delay: '0.5s' },
+  { left: '70%', top: '6%', size: 12, dur: '4.8s', delay: '1.8s' },
+  { left: '86%', top: '32%', size: 16, dur: '4.1s', delay: '0.8s' },
+  { left: '96%', top: '10%', size: 10, dur: '3.4s', delay: '2.2s' },
+];
+
+function GlobuleField() {
+  return (
+    <div className="float-globules" aria-hidden="true">
+      {globules.map((g, i) => (
+        <span
+          key={`g${i}`}
+          className="globule"
+          style={{
+            left: g.left,
+            top: g.top,
+            width: g.size,
+            height: g.size,
+            animationDuration: g.dur,
+            animationDelay: g.delay,
+          }}
+        />
+      ))}
+      {sparkles.map((s, i) => (
+        <span
+          key={`s${i}`}
+          className="sparkle"
+          style={{
+            left: s.left,
+            top: s.top,
+            fontSize: s.size,
+            animationDuration: s.dur,
+            animationDelay: s.delay,
+          }}
+        >
+          ✦
+        </span>
+      ))}
+    </div>
+  );
+}
+
 const T = {
   hi: {
     hero: {
@@ -529,7 +586,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section" id="about">
+        <section className="section has-globules" id="about">
+          <GlobuleField />
           <div className="container split">
             <div className="split-text">
               <h2>{t.about.heading}</h2>
