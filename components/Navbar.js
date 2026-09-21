@@ -84,8 +84,9 @@ export default function Navbar() {
     ));
 
   return (
-    <header className="topbar">
-      <div className="container topbar-inner">
+    <>
+      <header className="topbar">
+        <div className="container topbar-inner">
         <Link className="brand" href="/">
           <span className="brand-mark">ॐ</span>
           <span>
@@ -123,8 +124,11 @@ export default function Navbar() {
             <span />
           </button>
         </div>
-      </div>
+        </div>
+      </header>
 
+      {/* ड्रॉअर header के बाहर: topbar का backdrop-filter fixed तत्वों को
+          अपने अंदर क़ैद कर लेता है, इसलिए ये body-स्तर पर हैं */}
       <div
         className={open ? 'drawer-backdrop open' : 'drawer-backdrop'}
         onClick={close}
@@ -160,6 +164,6 @@ export default function Navbar() {
           </a>
         </div>
       </aside>
-    </header>
+    </>
   );
 }
