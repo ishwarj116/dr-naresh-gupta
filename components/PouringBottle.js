@@ -9,7 +9,7 @@ import pelletsPour from '../public/pellets-pour.jpg';
 // reduced-motion पर सिर्फ़ स्थिर फ़ोटो दिखती है।
 
 // फ़ोटो के अनुपात में बोतल के मुँह की स्थिति (0-1)
-const MOUTH = { x: 0.455, y: 0.56 };
+const MOUTH = { x: 0.44, y: 0.52 };
 const END_Y = 1.04;
 
 export default function PouringBottle({ alt }) {
@@ -29,6 +29,26 @@ export default function PouringBottle({ alt }) {
     let running = true;
     let lastSpawn = 0;
     let ps = [];
+    const stars = Array.from({ length: 26 }, () => ({
+      fx: Math.random(),
+      fy: Math.random(),
+      s: 0.007 + Math.random() * 0.011,
+      sp: 0.6 + Math.random() * 1.8,
+      ph: Math.random() * Math.PI * 2,
+      gold: Math.random() < 0.4,
+    }));
+
+    const drawStar = (x, y, r, color) => {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.moveTo(x, y - r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.quadraticCurveTo(x, y, x, y + r);
+      ctx.quadraticCurveTo(x, y, x - r, y);
+      ctx.quadraticCurveTo(x, y, x, y - r);
+      ctx.closePath();
+      ctx.fill();
+    };
 
     const resize = () => {
       w = wrap.offsetWidth;
@@ -44,8 +64,8 @@ export default function PouringBottle({ alt }) {
     ro.observe(wrap);
 
     const spawn = () => ({
-      x: MOUTH.x * w + (Math.random() - 0.5) * w * 0.018,
-      y: MOUTH.y * h + Math.random() * h * 0.012,
+      x: MOUTH.x * w + (Math.random() - 0.5) * w * 0.05,
+      y: MOUTH.y * h + (Math.random() - 0.5) * h * 0.025,
       vx: (0.25 + Math.random() * 0.55) * (w / 900),
       vy: (0.5 + Math.random() * 0.9) * (h / 900),
       r0: (0.010 + Math.random() * 0.006) * w,
@@ -101,6 +121,29 @@ export default function PouringBottle({ alt }) {
     const tick = (t) => {
       if (!running) return;
       ctx.clearRect(0, 0, w, h);
+      // टिमटिमाते तारे: अनियमित रूप से जगमगाते-बुझते
+      const ts = t / 1000;
+      stars.forEach((st) => {
+        let a = Math.sin(ts * st.sp + st.ph);
+        a = a > 0 ? a * a * 0.85 : 0;
+        if (a < 0.04) return;
+        const sx = st.fx * w;
+        const sy = st.fy * h;
+        const sr = st.s * w * (0.75 + 0.5 * a);
+        const glow = ctx.createRadialGradient(sx, sy, 0, sx, sy, sr * 2.2);
+        glow.addColorStop(0, `rgba(255,252,240,${a * 0.35})`);
+        glow.addColorStop(1, 'rgba(255,252,240,0)');
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(sx, sy, sr * 2.2, 0, Math.PI * 2);
+        ctx.fill();
+        drawStar(
+          sx,
+          sy,
+          sr,
+          st.gold ? `rgba(222,190,130,${a})` : `rgba(255,255,255,${a})`
+        );
+      });
       if (t - lastSpawn > 110 && ps.length < 30) {
         ps.push(spawn());
         if (Math.random() < 0.45) ps.push(spawn());
