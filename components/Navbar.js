@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { site } from '../lib/siteConfig';
 import { useLang } from '../lib/i18n';
-import { PhoneIcon, WhatsAppIcon } from './Icons';
+import { PhoneIcon, WhatsAppIcon, LeafMark } from './Icons';
 
 const T = {
   hi: {
@@ -88,7 +88,7 @@ export default function Navbar() {
       <header className="topbar">
         <div className="container topbar-inner">
         <Link className="brand" href="/">
-          <span className="brand-mark">ॐ</span>
+          <LeafMark />
           <span>
             <span className="brand-name brand-name-full">{t.brandName}</span>
             <span className="brand-name brand-name-short">{t.brandShort}</span>
@@ -136,7 +136,7 @@ export default function Navbar() {
       />
       <aside className={open ? 'drawer open' : 'drawer'} aria-label="Menu">
         <div className="drawer-head">
-          <span className="brand-mark">ॐ</span>
+          <LeafMark />
           <button
             type="button"
             className="drawer-close"

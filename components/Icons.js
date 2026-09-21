@@ -27,3 +27,36 @@ export function WhatsAppIcon() {
     </svg>
   );
 }
+
+export function LeafMark({ size = 42 }) {
+  return (
+    <svg
+      className="brand-leaf"
+      viewBox="0 0 120 120"
+      width={size}
+      height={size}
+      aria-hidden="true"
+    >
+      <rect width="120" height="120" rx="26" fill="#2c4429" />
+      <g transform="translate(60,66)">
+        <path
+          d="M0,28 C-3,12 -1,4 0,-6"
+          stroke="#b8894a"
+          strokeWidth="3.4"
+          fill="none"
+          strokeLinecap="round"
+        />
+        <path d="M-1,-5 C-25,-12 -36,-35 -25,-58 C-7,-45 3,-22 -1,-5 Z" fill="#7aa266" />
+        <path d="M1,-5 C25,-12 36,-35 25,-58 C7,-45 -3,-22 1,-5 Z" fill="#e8efe4" />
+        <path d="M0,-12 C-7,-31 -4,-50 0,-64 C4,-50 7,-31 0,-12 Z" fill="#e9d5a9" />
+        <path
+          d="M-31,31 Q0,47 31,31"
+          stroke="#b8894a"
+          strokeWidth="2.8"
+          fill="none"
+          strokeLinecap="round"
+        />
+      </g>
+    </svg>
+  );
+}

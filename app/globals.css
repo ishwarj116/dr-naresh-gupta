@@ -151,6 +151,11 @@ section[id] {
   font-size: 1.3rem;
 }
 
+.brand-leaf {
+  flex: 0 0 auto;
+  display: block;
+}
+
 .brand-name {
   display: block;
   font-family: var(--font-heading), serif;
@@ -1519,10 +1524,9 @@ section[id] {
     display: block;
   }
 
-  .brand-mark {
+  .brand-leaf {
     width: 36px;
     height: 36px;
-    font-size: 1.1rem;
   }
 
   .topbar-call {
