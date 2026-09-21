@@ -48,6 +48,7 @@ const jsonLd = {
   address: [
     {
       '@type': 'PostalAddress',
+      streetAddress: 'Radha Road, Roshan Bagh, near SBI ADB Bank',
       addressLocality: 'Rampur',
       addressRegion: 'Uttar Pradesh',
       addressCountry: 'IN',

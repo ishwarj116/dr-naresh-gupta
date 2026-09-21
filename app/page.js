@@ -153,7 +153,7 @@ const T = {
       eyebrow: `पिछले ${site.experienceYears} वर्षों से आपकी सेवा में`,
       title: 'अनुभव, विश्वास और सौम्य चिकित्सा',
       name: 'डॉ. नरेश कुमार गुप्ता',
-      lead: 'आदर्श कॉलोनी, रामपुर एवं सेक्टर 14, गुरुग्राम में होम्योपैथिक चिकित्सा द्वारा हज़ारों रोगियों को स्वास्थ्य-लाभ। एड़ी व तलवे का दर्द, मस्से, गोखरू, बवासीर, बुखार तथा जटिल पुरानी बीमारियों का सौम्य उपचार।',
+      lead: 'रामपुर (रोशन बाग़) एवं सेक्टर 14, गुरुग्राम में होम्योपैथिक चिकित्सा द्वारा हज़ारों रोगियों को स्वास्थ्य-लाभ। एड़ी व तलवे का दर्द, मस्से, गोखरू, बवासीर, बुखार तथा जटिल पुरानी बीमारियों का सौम्य उपचार।',
       callBtn: 'अभी संपर्क करें',
       waBtn: 'WhatsApp पर पूछें',
       chips: [
@@ -363,7 +363,7 @@ const T = {
       clinics: [
         {
           name: 'रामपुर क्लिनिक',
-          address: 'आदर्श कॉलोनी, रामपुर (उत्तर प्रदेश)',
+          address: 'राधा रोड, रोशन बाग़, SBI ADB बैंक के पास, रामपुर (उत्तर प्रदेश)',
           mapsUrl: site.mapsUrl,
         },
         {
@@ -380,7 +380,7 @@ const T = {
       eyebrow: `Serving patients for the last ${site.experienceYears} years`,
       title: 'Experience, Trust and Gentle Healing',
       name: 'Dr. Naresh Kumar Gupta',
-      lead: 'Homeopathic care that has helped thousands of patients, at Adarsh Colony, Rampur and Sector 14, Gurugram. Gentle treatment of heel and sole pain, warts, corns, piles, fevers and long-standing chronic illnesses.',
+      lead: 'Homeopathic care that has helped thousands of patients, at Roshan Bagh, Rampur and Sector 14, Gurugram. Gentle treatment of heel and sole pain, warts, corns, piles, fevers and long-standing chronic illnesses.',
       callBtn: 'Contact Now',
       waBtn: 'Ask on WhatsApp',
       chips: [
@@ -590,7 +590,7 @@ const T = {
       clinics: [
         {
           name: 'Rampur Clinic',
-          address: 'Adarsh Colony, Rampur (Uttar Pradesh)',
+          address: 'Radha Road, Roshan Bagh, near SBI ADB Bank, Rampur (Uttar Pradesh)',
           mapsUrl: site.mapsUrl,
         },
         {

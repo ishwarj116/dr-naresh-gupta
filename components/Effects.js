@@ -35,16 +35,23 @@ export default function Effects() {
     cleanup.push(() => window.removeEventListener('scroll', onScroll));
 
     if (!reduce) {
-      // stagger-दार reveal: एक ही parent के अंदर के तत्व क्रम से उभरते हैं
-      const els = Array.from(document.querySelectorAll(REVEAL_SELECTORS)).filter(
-        (el) => !el.classList.contains('did-reveal')
-      );
+      // stagger-दार reveal: एक ही parent के अंदर के तत्व क्रम से उभरते हैं।
+      // फ़्लिकर से बचाव: जो तत्व पहले से स्क्रीन पर दिख रहे हैं, उन्हें कभी
+      // छिपाया नहीं जाता; सिर्फ़ नीचे (fold के बाद) वाले तत्व reveal होते हैं।
+      const vh = window.innerHeight;
+      const els = [];
       const siblingCount = new Map();
-      els.forEach((el) => {
+      document.querySelectorAll(REVEAL_SELECTORS).forEach((el) => {
+        if (el.classList.contains('did-reveal')) return;
+        if (el.getBoundingClientRect().top < vh - 40) {
+          el.classList.add('did-reveal');
+          return;
+        }
         const n = siblingCount.get(el.parentElement) || 0;
         siblingCount.set(el.parentElement, n + 1);
         el.style.transitionDelay = `${Math.min(n, 8) * 70}ms`;
         el.classList.add('reveal');
+        els.push(el);
       });
       const io = new IntersectionObserver(
         (entries) => {

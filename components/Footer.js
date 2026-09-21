@@ -16,7 +16,7 @@ const T = {
       { href: '/privacy', label: 'गोपनीयता नीति' },
     ],
     certified: 'डॉ. नरेश कुमार गुप्ता, प्रमाणित एवं पंजीकृत होम्योपैथिक चिकित्सक',
-    clinic: 'गुप्ता होम्योपैथिक क्लिनिक · आदर्श कॉलोनी, रामपुर (उ.प्र.) · सेक्टर 14, गुरुग्राम',
+    clinic: 'गुप्ता होम्योपैथिक क्लिनिक · राधा रोड, रोशन बाग़, रामपुर (उ.प्र.) · सेक्टर 14, गुरुग्राम',
     disclaimer:
       'यह वेबसाइट केवल सामान्य जानकारी हेतु है। किसी भी रोग की चिकित्सा के लिए कृपया चिकित्सक से व्यक्तिगत परामर्श अवश्य लें।',
   },
@@ -32,7 +32,7 @@ const T = {
       { href: '/privacy', label: 'Privacy Policy' },
     ],
     certified: 'Dr. Naresh Kumar Gupta, certified & registered homeopathic physician',
-    clinic: 'Gupta Homeopathic Clinic · Adarsh Colony, Rampur (UP) · Sector 14, Gurugram',
+    clinic: 'Gupta Homeopathic Clinic · Radha Road, Roshan Bagh, Rampur (UP) · Sector 14, Gurugram',
     disclaimer:
       'This website is for general information only. Please consult a qualified physician in person for the treatment of any illness.',
   },

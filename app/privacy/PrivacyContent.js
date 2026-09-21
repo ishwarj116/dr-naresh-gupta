@@ -35,7 +35,7 @@ const T = {
       {
         h: 'संपर्क',
         ps: [
-          `इस नीति से जुड़े किसी भी प्रश्न के लिए आप क्लिनिक से संपर्क कर सकते हैं: ${site.phoneDisplay} · आदर्श कॉलोनी, रामपुर (उ.प्र.) एवं मकान नं. 303, सेक्टर 14, गुरुग्राम (हरियाणा)।`,
+          `इस नीति से जुड़े किसी भी प्रश्न के लिए आप क्लिनिक से संपर्क कर सकते हैं: ${site.phoneDisplay} · राधा रोड, रोशन बाग़, रामपुर (उ.प्र.) एवं मकान नं. 303, सेक्टर 14, गुरुग्राम (हरियाणा)।`,
         ],
       },
     ],
@@ -71,7 +71,7 @@ const T = {
       {
         h: 'Contact',
         ps: [
-          `For any questions about this policy, you can contact the clinic: ${site.phoneDisplay} · Adarsh Colony, Rampur (UP) and House No. 303, Sector 14, Gurugram (Haryana).`,
+          `For any questions about this policy, you can contact the clinic: ${site.phoneDisplay} · Radha Road, Roshan Bagh, Rampur (UP) and House No. 303, Sector 14, Gurugram (Haryana).`,
         ],
       },
     ],
