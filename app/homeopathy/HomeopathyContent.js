@@ -9,6 +9,21 @@ import hahnemannPortrait from '../../public/hahnemann-portrait.jpg';
 import organonTitle from '../../public/organon-title.jpg';
 import globulesPhoto from '../../public/homeo-flower.jpg';
 
+// शोध-संदर्भ: मानक अकादमिक शैली में, दोनों भाषाओं में एक जैसे रहते हैं
+const REFS = [
+  'Hahnemann S. Organon of Medicine. 6th edition (translated by W. Boericke). Philadelphia: Boericke & Tafel; 1921.',
+  'Ministry of AYUSH, Government of India. Homoeopathy [Internet]. Available from: https://ayush.gov.in',
+  'Central Council for Research in Homoeopathy (CCRH), New Delhi [Internet]. Available from: https://ccrhindia.nic.in',
+  'The National Commission for Homoeopathy Act, 2020. The Gazette of India; 2020 Sep 21.',
+  'US Department of Health & Human Services; National Institutes of Health; National Center for Complementary and Alternative Medicine. Homeopathy: An Introduction [Internet]. Bethesda (MD): NCCAM; 2009 Jul [updated 2013 May; cited 2014 Feb].',
+  'National Center for Complementary and Integrative Health (NIH). Homeopathy: What You Need To Know [Internet]. Available from: https://www.nccih.nih.gov/health/homeopathy',
+  'World Health Organization. WHO Traditional Medicine Strategy: 2014-2023. Geneva: WHO; 2013.',
+  'Altunc U, Pittler MH, Ernst E. Homeopathy for childhood and adolescence ailments: systematic review of randomized clinical trials. Mayo Clin Proc. 2007;82(1):69-75.',
+  'Kemper KJ, Vohra S, Walls R. The use of complementary and alternative medicine in pediatrics. Pediatrics. 2008;122(6):1374-1386. Reaffirmed January 2013.',
+  'Kuehn BM. Despite health claims by manufacturers, little oversight for homeopathic products. JAMA. 2009;302(15):1631-1634.',
+  'US Food and Drug Administration. Manual of Compliance Policy Guides, Sec. 400.400: Conditions Under Which Homeopathic Drugs May Be Marketed [Internet]; 1988 May 31 [updated 1995 Mar; cited 2014 Feb 6].',
+];
+
 const T = {
   hi: {
     crumbHome: 'मुखपृष्ठ',
@@ -61,7 +76,7 @@ const T = {
         desc: 'होम्योपैथी का मूल ग्रंथ, जिसमें डॉ. हानेमान ने चिकित्सा के संपूर्ण सिद्धांत सूत्रबद्ध किए। उनके जीवनकाल और उसके बाद कुल छह संस्करण प्रकाशित हुए। आज भी विश्व भर के होम्योपैथिक कॉलेजों में यही ग्रंथ पढ़ाया जाता है।',
       },
       {
-        year: '1811–1821',
+        year: '1811-1821',
         title: 'मटेरिया मेडिका प्यूरा',
         original: 'Reine Arzneimittellehre',
         desc: 'छह खंडों का ग्रंथ, जिसमें स्वस्थ मनुष्यों पर दवाओं के परीक्षण (प्रूविंग) से प्राप्त लक्षणों का शुद्ध, व्यवस्थित विवरण है। होम्योपैथिक दवाओं के ज्ञान का आधार यही ग्रंथ है।',
@@ -106,6 +121,9 @@ const T = {
         fact: 'कुछ रोगियों में आरंभ में लक्षण थोड़े उभर सकते हैं, जिसे चिकित्सक की देखरेख में शुभ संकेत माना जाता है। यह अल्पकालिक होता है और हर रोगी में नहीं होता।',
       },
     ],
+    refsHeading: 'संदर्भ (References)',
+    refsIntro:
+      'इस पृष्ठ की ऐतिहासिक एवं संस्थागत जानकारी हेतु प्रमुख स्रोत, तथा अधिक अध्ययन के लिए शोध-संदर्भ:',
     ctaHeading: 'क्या होम्योपैथी आपके रोग में सहायक हो सकती है?',
     ctaSub: `${site.experienceYears} वर्षों के अनुभवी चिकित्सक से परामर्श लें। रामपुर (उ.प्र.) एवं सेक्टर 14, गुरुग्राम।`,
     call: 'कॉल करें',
@@ -118,15 +136,15 @@ const T = {
     lead: 'One of the world’s leading systems of gentle medicine, more than two hundred years old. Its history, principles and place in India.',
     introHeading: 'What is Homeopathy?',
     introP1:
-      'Homeopathy is an alternative system of medicine that seeks to relieve illness by awakening the body’s own defensive capacity (vital force) rather than merely suppressing symptoms. Its medicines are prepared in extremely minute quantities from plants, minerals and other natural sources — which is why they are gentle, and as sweet pills can be given easily to everyone from children to the elderly.',
+      'Homeopathy is an alternative system of medicine that seeks to relieve illness by awakening the body’s own defensive capacity (vital force) rather than merely suppressing symptoms. Its medicines are prepared in extremely minute quantities from plants, minerals and other natural sources, which is why they are gentle, and as sweet pills can be given easily to everyone from children to the elderly.',
     introP2a: 'The word "homeopathy" comes from the Greek ',
     introP2b: ' (similar) and ',
-    introP2c: ' (suffering) — that is, "treating like with like".',
+    introP2c: ' (suffering), that is, "treating like with like".',
     hahnemannHeading: 'The Founder: Dr. Samuel Hahnemann',
     portraitAlt: 'An 1838 oil portrait of Dr. Samuel Hahnemann',
     portraitCaption: 'Dr. Samuel Hahnemann (1755-1843), painted in Paris in 1838',
     bio: [
-      'Dr. Christian Friedrich Samuel Hahnemann was born on 10 April 1755 in Meissen, Germany. A man of extraordinary talent — a polyglot, chemist and physician — he earned his medical degree in 1779, but grew disillusioned with the harsh medical practices of his era (bloodletting, toxic drugs), gave up practice and turned to translation work.',
+      'Dr. Christian Friedrich Samuel Hahnemann was born on 10 April 1755 in Meissen, Germany. A man of extraordinary talent, a polyglot, chemist and physician, he earned his medical degree in 1779, but grew disillusioned with the harsh medical practices of his era (bloodletting, toxic drugs), gave up practice and turned to translation work.',
       'In 1790, while translating a book, he experimented on himself with cinchona (quinine) bark and found that in a healthy body it produced malaria-like symptoms. From this was born the principle of "treating like with like". After years of careful testing he published his famous work, the Organon, in 1810, giving homeopathy the form of a systematic school of medicine.',
       'He spent his final years in Paris, where he died on 2 July 1843 at the age of 88. His birthday is now celebrated every year as World Homeopathy Day.',
     ],
@@ -135,7 +153,7 @@ const T = {
       {
         icon: '⚖️',
         title: 'The Law of Similars',
-        desc: '"Similia Similibus Curentur" — a substance that produces disease-like symptoms in a healthy person can, in an extremely minute dose, help cure those very symptoms in a patient. This is the foundation of homeopathy.',
+        desc: '"Similia Similibus Curentur": a substance that produces disease-like symptoms in a healthy person can, in an extremely minute dose, help cure those very symptoms in a patient. This is the foundation of homeopathy.',
       },
       {
         icon: '💧',
@@ -162,10 +180,10 @@ const T = {
         desc: 'The foundational text of homeopathy, in which Dr. Hahnemann set out its complete principles. Six editions appeared during and after his lifetime, and it is still taught in homeopathic colleges around the world.',
       },
       {
-        year: '1811–1821',
+        year: '1811-1821',
         title: 'Materia Medica Pura',
         original: 'Reine Arzneimittellehre',
-        desc: 'A six-volume work containing the pure, systematic record of symptoms obtained by testing medicines (provings) on healthy people — the basis of homeopathic drug knowledge.',
+        desc: 'A six-volume work containing the pure, systematic record of symptoms obtained by testing medicines (provings) on healthy people, the basis of homeopathic drug knowledge.',
       },
       {
         year: '1828',
@@ -179,7 +197,7 @@ const T = {
     credit: 'Image: Wellcome Collection (CC BY 4.0)',
     indiaHeading: 'Homeopathy in India',
     indiaFacts: [
-      'Homeopathy reached India in the early 19th century — Dr. John Martin Honigberger treated Maharaja Ranjit Singh with it.',
+      'Homeopathy reached India in the early 19th century. Dr. John Martin Honigberger treated Maharaja Ranjit Singh with it.',
       'Today India is the world’s largest centre of homeopathy, with hundreds of homeopathic medical colleges and lakhs of registered practitioners.',
       'Homeopathy is a recognised system of medicine under the Ministry of AYUSH, Government of India.',
       'The National Commission for Homoeopathy (NCH) regulates education and registration, while the CCRH conducts research.',
@@ -196,7 +214,7 @@ const T = {
       },
       {
         myth: 'All those white sweet pills are the same.',
-        fact: 'The sweet pills are only the carrier. The real medicine is what is poured onto them — made from thousands of different sources and chosen individually for each patient.',
+        fact: 'The sweet pills are only the carrier. The real medicine is what is poured onto them, made from thousands of different sources and chosen individually for each patient.',
       },
       {
         myth: 'Homeopathy demands very difficult dietary restrictions.',
@@ -207,6 +225,9 @@ const T = {
         fact: 'In some patients symptoms may briefly surface at the start, which under a physician’s supervision is considered a good sign. It is short-lived and does not happen to everyone.',
       },
     ],
+    refsHeading: 'References',
+    refsIntro:
+      'Key sources for the historical and institutional information on this page, and research references for further reading:',
     ctaHeading: 'Could homeopathy help with your condition?',
     ctaSub: `Consult a physician with ${site.experienceYears} years of experience. Rampur (UP) and Sector 14, Gurugram.`,
     call: 'Call Now',
@@ -345,6 +366,18 @@ export default function HomeopathyContent() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section" id="references">
+        <div className="container narrow">
+          <h2>{t.refsHeading}</h2>
+          <p className="section-sub">{t.refsIntro}</p>
+          <ol className="refs">
+            {REFS.map((r) => (
+              <li key={r.slice(0, 40)}>{r}</li>
+            ))}
+          </ol>
         </div>
       </section>
 

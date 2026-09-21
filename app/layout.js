@@ -24,7 +24,7 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: 'डॉ. नरेश कुमार गुप्ता | होम्योपैथिक चिकित्सक | रामपुर व गुरुग्राम',
   description:
-    '51 वर्षों के अनुभव के साथ होम्योपैथिक चिकित्सा। एड़ी व तलवे का दर्द, मस्से, गोखरू, बवासीर, बुखार तथा जटिल एवं पुरानी बीमारियों का सौम्य होम्योपैथिक उपचार। Homeopathic physician with 51 years of experience — Rampur (UP) & Gurugram.',
+    '51 वर्षों के अनुभव के साथ होम्योपैथिक चिकित्सा। एड़ी व तलवे का दर्द, मस्से, गोखरू, बवासीर, बुखार तथा जटिल एवं पुरानी बीमारियों का सौम्य होम्योपैथिक उपचार। Homeopathic physician with 51 years of experience in Rampur (UP) & Gurugram.',
   openGraph: {
     title: 'डॉ. नरेश कुमार गुप्ता | होम्योपैथिक चिकित्सक',
     description:

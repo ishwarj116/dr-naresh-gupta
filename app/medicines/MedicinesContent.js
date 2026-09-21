@@ -95,7 +95,7 @@ const T = {
     rangeP1:
       'The homeopathic materia medica contains thousands of authentic medicines. From heel pain to complex illnesses that have lasted for years, there are many medicines available for every kind of problem. Our clinic itself stocks hundreds of them, from which the medicine is chosen according to the patient’s condition.',
     rangeP2:
-      'What matters most is that two patients with the same disease may receive different medicines — in homeopathy the medicine is chosen not by the disease’s name but by the patient’s complete symptoms, constitution and temperament. That is why we do not list "the one medicine" for any disease on this website. The right medicine is the one chosen after seeing and understanding you.',
+      'What matters most is that two patients with the same disease may receive different medicines: in homeopathy the medicine is chosen not by the disease’s name but by the patient’s complete symptoms, constitution and temperament. That is why we do not list "the one medicine" for any disease on this website. The right medicine is the one chosen after seeing and understanding you.',
     note: 'Please do not take any medicine on your own without consulting a qualified physician. The right medicine, potency and dose can only be decided after consultation.',
     bottlesAlt: 'Bottles of homeopathic medicines',
     bottlesCaption: 'Hundreds of authentic medicines available at the clinic',
@@ -145,14 +145,14 @@ const T = {
     selectionHeading: 'How Is the Medicine Chosen?',
     selectionP1:
       'During consultation, along with the symptoms of the illness, the patient’s routine, diet, sleep, temperament and past illnesses are understood in detail. The medicine and its potency are decided on the basis of this complete picture.',
-    selectionP2: `This is why ${site.experienceYears} years of experience matters so much — only after seeing thousands of patients does one develop the judgement of which medicine to give, in what potency, and when.`,
+    selectionP2: `This is why ${site.experienceYears} years of experience matters so much. Only after seeing thousands of patients does one develop the judgement of which medicine to give, in what potency, and when.`,
     processLink: 'See how a consultation works →',
     globulesAlt: 'Homeopathic sweet pills',
     rulesHeading: 'How to Take the Medicine',
     rulesSub: 'To get the full benefit of homeopathic medicine, keep these in mind:',
     rules: [
       'Always take the medicine with a clean mouth. Avoid eating or drinking for about half an hour before and after.',
-      'Do not touch the pills — tip them into your mouth from the bottle cap or clean paper.',
+      'Do not touch the pills. Tip them into your mouth from the bottle cap or clean paper.',
       'Stay away from camphor and strong-smelling balms and oils during treatment; they can reduce the medicine’s effect.',
       'Store the medicine away from sunlight and strong smells, in a cool, dry place.',
       'Follow the dose and timing prescribed by the physician. Do not increase or decrease it on your own.',

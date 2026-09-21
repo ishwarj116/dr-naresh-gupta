@@ -1347,6 +1347,20 @@ section[id] {
   display: block;
 }
 
+/* ---------- references list ---------- */
+.refs {
+  padding-inline-start: 22px;
+  display: grid;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  overflow-wrap: break-word;
+}
+
+.refs li {
+  padding-inline-start: 4px;
+}
+
 /* ---------- floating globules & sparkles ---------- */
 .has-globules {
   position: relative;
