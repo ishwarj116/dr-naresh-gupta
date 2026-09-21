@@ -14,58 +14,90 @@ import globulesPhoto from '../public/homeo-globules.jpg';
 
 const Hero3D = dynamic(() => import('../components/Hero3D'), { ssr: false });
 
-// परिचय सेक्शन की सजावट: तैरती सफ़ेद गोलियाँ (होम्योपैथिक गोलियों जैसी) + चमकते सितारे
-const globules = [
-  { left: '4%', top: '12%', size: 18, dur: '7s', delay: '0s' },
-  { left: '10%', top: '68%', size: 12, dur: '9s', delay: '1.2s' },
-  { left: '20%', top: '30%', size: 9, dur: '8s', delay: '0.6s' },
-  { left: '46%', top: '8%', size: 14, dur: '10s', delay: '2s' },
-  { left: '60%', top: '80%', size: 16, dur: '8.5s', delay: '0.3s' },
-  { left: '78%', top: '16%', size: 11, dur: '7.5s', delay: '1.6s' },
-  { left: '90%', top: '55%', size: 20, dur: '11s', delay: '0.9s' },
-  { left: '94%', top: '86%', size: 10, dur: '9.5s', delay: '2.4s' },
-];
-
-const sparkles = [
-  { left: '7%', top: '40%', size: 15, dur: '3.6s', delay: '0s' },
-  { left: '28%', top: '78%', size: 11, dur: '4.4s', delay: '1s' },
-  { left: '52%', top: '90%', size: 13, dur: '3.9s', delay: '0.5s' },
-  { left: '70%', top: '6%', size: 12, dur: '4.8s', delay: '1.8s' },
-  { left: '86%', top: '32%', size: 16, dur: '4.1s', delay: '0.8s' },
-  { left: '96%', top: '10%', size: 10, dur: '3.4s', delay: '2.2s' },
+// परिचय सेक्शन की सजावट: तैरती सफ़ेद गोलियाँ (होम्योपैथिक गोलियों जैसी)
+// + चमकते ✦ सितारे, दो गहराई-परतों में (माउस पैरालैक्स Effects.js से)
+const fgLayers = [
+  {
+    depth: 16,
+    globules: [
+      { left: '4%', top: '12%', size: 18, dur: '7s', delay: '0s' },
+      { left: '10%', top: '68%', size: 12, dur: '9s', delay: '1.2s' },
+      { left: '20%', top: '30%', size: 9, dur: '8s', delay: '0.6s' },
+      { left: '33%', top: '86%', size: 14, dur: '9.5s', delay: '1.8s' },
+      { left: '46%', top: '8%', size: 14, dur: '10s', delay: '2s' },
+      { left: '58%', top: '46%', size: 8, dur: '7.8s', delay: '0.4s' },
+      { left: '69%', top: '90%', size: 12, dur: '8.8s', delay: '2.6s' },
+      { left: '78%', top: '16%', size: 11, dur: '7.5s', delay: '1.6s' },
+      { left: '94%', top: '86%', size: 10, dur: '9.5s', delay: '2.4s' },
+    ],
+    sparkles: [
+      { left: '7%', top: '40%', size: 16, dur: '3.6s', delay: '0s', white: false },
+      { left: '28%', top: '78%', size: 12, dur: '4.4s', delay: '1s', white: true },
+      { left: '52%', top: '90%', size: 14, dur: '3.9s', delay: '0.5s', white: false },
+      { left: '64%', top: '22%', size: 11, dur: '4.6s', delay: '2.1s', white: true },
+      { left: '86%', top: '32%', size: 17, dur: '4.1s', delay: '0.8s', white: false },
+    ],
+  },
+  {
+    depth: 34,
+    globules: [
+      { left: '8%', top: '88%', size: 22, dur: '10.5s', delay: '0.8s' },
+      { left: '16%', top: '8%', size: 15, dur: '8.2s', delay: '2.2s' },
+      { left: '27%', top: '55%', size: 11, dur: '9.2s', delay: '0.2s' },
+      { left: '42%', top: '72%', size: 19, dur: '11s', delay: '1.4s' },
+      { left: '54%', top: '28%', size: 12, dur: '8.6s', delay: '2.8s' },
+      { left: '66%', top: '62%', size: 16, dur: '9.8s', delay: '0.7s' },
+      { left: '74%', top: '40%', size: 10, dur: '7.6s', delay: '1.9s' },
+      { left: '84%', top: '74%', size: 24, dur: '12s', delay: '0.5s' },
+      { left: '90%', top: '55%', size: 20, dur: '11s', delay: '0.9s' },
+      { left: '96%', top: '24%', size: 13, dur: '8.4s', delay: '3s' },
+    ],
+    sparkles: [
+      { left: '13%', top: '24%', size: 13, dur: '3.8s', delay: '1.4s', white: true },
+      { left: '37%', top: '14%', size: 18, dur: '4.2s', delay: '0.3s', white: false },
+      { left: '49%', top: '58%', size: 12, dur: '3.5s', delay: '2.5s', white: true },
+      { left: '70%', top: '6%', size: 14, dur: '4.8s', delay: '1.8s', white: false },
+      { left: '80%', top: '88%', size: 15, dur: '4s', delay: '0.9s', white: true },
+      { left: '96%', top: '10%', size: 11, dur: '3.4s', delay: '2.2s', white: false },
+    ],
+  },
 ];
 
 function GlobuleField() {
   return (
     <div className="float-globules" aria-hidden="true">
-      {globules.map((g, i) => (
-        <span
-          key={`g${i}`}
-          className="globule"
-          style={{
-            left: g.left,
-            top: g.top,
-            width: g.size,
-            height: g.size,
-            animationDuration: g.dur,
-            animationDelay: g.delay,
-          }}
-        />
-      ))}
-      {sparkles.map((s, i) => (
-        <span
-          key={`s${i}`}
-          className="sparkle"
-          style={{
-            left: s.left,
-            top: s.top,
-            fontSize: s.size,
-            animationDuration: s.dur,
-            animationDelay: s.delay,
-          }}
-        >
-          ✦
-        </span>
+      {fgLayers.map((layer, li) => (
+        <div className="fg-layer" data-depth={layer.depth} key={`l${li}`}>
+          {layer.globules.map((g, i) => (
+            <span
+              key={`g${i}`}
+              className="globule"
+              style={{
+                left: g.left,
+                top: g.top,
+                width: g.size,
+                height: g.size,
+                animationDuration: g.dur,
+                animationDelay: g.delay,
+              }}
+            />
+          ))}
+          {layer.sparkles.map((s, i) => (
+            <span
+              key={`s${i}`}
+              className={s.white ? 'sparkle sparkle-white' : 'sparkle'}
+              style={{
+                left: s.left,
+                top: s.top,
+                fontSize: s.size,
+                animationDuration: s.dur,
+                animationDelay: s.delay,
+              }}
+            >
+              ✦
+            </span>
+          ))}
+        </div>
       ))}
     </div>
   );

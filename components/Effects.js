@@ -134,6 +134,32 @@ export default function Effects() {
         cleanup.push(() => summary.removeEventListener('click', onClick));
       });
 
+      // परिचय की तैरती गोलियाँ माउस के साथ हिलती हैं (गहराई के अनुसार अलग-अलग)
+      const globuleHost = document.querySelector('.has-globules');
+      if (globuleHost && window.matchMedia('(hover: hover)').matches) {
+        const layers = globuleHost.querySelectorAll('.fg-layer');
+        const onGlobMove = (ev) => {
+          const r = globuleHost.getBoundingClientRect();
+          const gx = (ev.clientX - r.left) / r.width - 0.5;
+          const gy = (ev.clientY - r.top) / r.height - 0.5;
+          layers.forEach((layer) => {
+            const d = Number(layer.dataset.depth) || 16;
+            layer.style.transform = `translate(${(-gx * d).toFixed(1)}px, ${(-gy * d).toFixed(1)}px)`;
+          });
+        };
+        const onGlobLeave = () => {
+          layers.forEach((layer) => {
+            layer.style.transform = '';
+          });
+        };
+        globuleHost.addEventListener('pointermove', onGlobMove);
+        globuleHost.addEventListener('pointerleave', onGlobLeave);
+        cleanup.push(() => {
+          globuleHost.removeEventListener('pointermove', onGlobMove);
+          globuleHost.removeEventListener('pointerleave', onGlobLeave);
+        });
+      }
+
       // हीरो फ़ोटो पर 3D झुकाव (सिर्फ़ माउस वाले डिवाइस)
       if (window.matchMedia('(hover: hover)').matches) {
         const fig = document.querySelector('.hero-photo');

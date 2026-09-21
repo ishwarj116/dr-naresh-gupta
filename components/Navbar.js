@@ -10,6 +10,7 @@ import { PhoneIcon, WhatsAppIcon } from './Icons';
 const T = {
   hi: {
     brandName: 'डॉ. नरेश कुमार गुप्ता',
+    brandShort: 'डॉ. नरेश',
     brandSub: 'प्रमाणित होम्योपैथिक चिकित्सक',
     call: 'कॉल करें',
     menuOpen: 'मेन्यू खोलें',
@@ -25,6 +26,7 @@ const T = {
   },
   en: {
     brandName: 'Dr. Naresh Kumar Gupta',
+    brandShort: 'Dr. Naresh',
     brandSub: 'Certified Homeopathic Physician',
     call: 'Call Now',
     menuOpen: 'Open menu',
@@ -87,7 +89,8 @@ export default function Navbar() {
         <Link className="brand" href="/">
           <span className="brand-mark">ॐ</span>
           <span>
-            <span className="brand-name">{t.brandName}</span>
+            <span className="brand-name brand-name-full">{t.brandName}</span>
+            <span className="brand-name brand-name-short">{t.brandShort}</span>
             <span className="brand-sub">{t.brandSub}</span>
           </span>
         </Link>
