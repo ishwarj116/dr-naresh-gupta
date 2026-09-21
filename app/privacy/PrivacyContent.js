@@ -25,6 +25,13 @@ const T = {
         ],
       },
       {
+        h: 'एनालिटिक्स एवं विज्ञापन मापन',
+        ps: [
+          'विज्ञापन अभियानों के दौरान यह वेबसाइट Google Analytics तथा Google Ads कन्वर्ज़न ट्रैकिंग का उपयोग कर सकती है। ये सेवाएँ कुकीज़ के माध्यम से गुमनाम उपयोग-आँकड़े (जैसे पेज व्यू, कॉल या WhatsApp बटन पर क्लिक) एकत्र करती हैं, ताकि हम समझ सकें कि वेबसाइट कैसे उपयोग हो रही है। इनसे न आपकी व्यक्तिगत पहचान होती है, न ही कोई स्वास्थ्य-जानकारी एकत्र होती है।',
+          'आप अपने ब्राउज़र की सेटिंग से कुकीज़ को कभी भी रोक या हटा सकते हैं।',
+        ],
+      },
+      {
         h: 'चिकित्सा अस्वीकरण',
         ps: [
           'इस वेबसाइट की सारी सामग्री केवल सामान्य जानकारी हेतु है। यह किसी रोग के निदान या उपचार की गारंटी नहीं है, और न ही यह योग्य चिकित्सक के व्यक्तिगत परामर्श का विकल्प है।',
@@ -58,6 +65,13 @@ const T = {
         h: 'Links to External Services',
         ps: [
           'The website contains links for phone calls, WhatsApp and Google Maps. Once you use them, you are subject to the privacy policies of those services (WhatsApp/Google). Anything you share with the clinic by phone or WhatsApp goes directly to the clinic and is kept fully confidential.',
+        ],
+      },
+      {
+        h: 'Analytics and Advertising Measurement',
+        ps: [
+          'During advertising campaigns this website may use Google Analytics and Google Ads conversion tracking. These services collect anonymous usage statistics through cookies (such as page views and clicks on the call or WhatsApp buttons) so we can understand how the website is used. They do not personally identify you and collect no health information.',
+          'You can block or delete cookies at any time in your browser settings.',
         ],
       },
       {

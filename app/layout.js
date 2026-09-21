@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Effects from '../components/Effects';
 import CallBar from '../components/CallBar';
+import Analytics from '../components/Analytics';
 import { LanguageProvider } from '../lib/i18n';
 import './globals.css';
 
@@ -75,6 +76,7 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <Analytics />
         <LanguageProvider>
           <Effects />
           <Navbar />
