@@ -17,10 +17,11 @@ const T = {
     menuClose: 'मेन्यू बंद करें',
     links: [
       { href: '/', label: 'मुखपृष्ठ', match: 'home' },
+      { href: '/doctor', label: 'डॉक्टर परिचय', match: 'doctor' },
       { href: '/homeopathy', label: 'होम्योपैथी', match: 'homeopathy' },
       { href: '/medicines', label: 'औषधियाँ', match: 'medicines' },
+      { href: '/articles', label: 'स्वास्थ्य लेख', match: 'articles' },
       { href: '/#specialties', label: 'रोग व उपचार' },
-      { href: '/#testimonials', label: 'रोगियों के अनुभव' },
       { href: '/#contact', label: 'संपर्क' },
     ],
   },
@@ -33,10 +34,11 @@ const T = {
     menuClose: 'Close menu',
     links: [
       { href: '/', label: 'Home', match: 'home' },
+      { href: '/doctor', label: 'The Doctor', match: 'doctor' },
       { href: '/homeopathy', label: 'Homeopathy', match: 'homeopathy' },
       { href: '/medicines', label: 'Medicines', match: 'medicines' },
+      { href: '/articles', label: 'Articles', match: 'articles' },
       { href: '/#specialties', label: 'Conditions' },
-      { href: '/#testimonials', label: 'Patient Stories' },
       { href: '/#contact', label: 'Contact' },
     ],
   },
@@ -51,9 +53,13 @@ export default function Navbar() {
     ? 'homeopathy'
     : pathname.includes('/medicines')
       ? 'medicines'
-      : pathname.includes('/privacy')
-        ? 'privacy'
-        : 'home';
+      : pathname.includes('/doctor')
+        ? 'doctor'
+        : pathname.includes('/articles')
+          ? 'articles'
+          : pathname.includes('/privacy')
+            ? 'privacy'
+            : 'home';
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';

@@ -1018,27 +1018,63 @@ section[id] {
 .footer {
   background: var(--green-dark);
   color: #cfd8c8;
-  text-align: center;
-  padding-block: 30px;
-  font-size: 0.9rem;
-}
-
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px 22px;
-  margin-bottom: 16px;
-}
-
-.footer-links a {
-  color: #e6ecdf;
-  text-decoration: none;
+  padding-block: 40px 26px;
   font-size: 0.92rem;
 }
 
-.footer-links a:hover {
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-heading {
+  font-family: var(--font-heading), serif;
+  color: #fff;
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+}
+
+.footer-text {
+  color: #c2cfb4;
+  margin-bottom: 8px;
+}
+
+.footer-list {
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+.footer-list a,
+.footer-phone {
+  color: #e6ecdf;
+  text-decoration: none;
+}
+
+.footer-list a:hover,
+.footer-phone:hover {
   color: #e9d5a9;
+}
+
+.footer-phone {
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+}
+
+@media (min-width: 720px) {
+  .footer-grid {
+    grid-template-columns: 1.2fr 0.8fr 1.2fr;
+    gap: 48px;
+  }
 }
 
 .disclaimer {
@@ -1581,6 +1617,128 @@ section[id] {
   width: 100% !important;
   height: 100% !important;
   display: block;
+}
+
+/* ---------- doctor timeline ---------- */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-inline-start: 26px;
+  display: grid;
+  gap: 26px;
+  margin-top: 10px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(var(--gold), var(--green));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: -26px;
+  top: 7px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 3px solid var(--gold);
+}
+
+.timeline-year {
+  display: inline-block;
+  font-family: var(--font-heading), serif;
+  color: #8a6430;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.timeline-item h3 {
+  font-size: 1.12rem;
+  margin-bottom: 4px;
+}
+
+.timeline-item p {
+  color: var(--ink-soft);
+}
+
+/* ---------- doctor quote & gallery ---------- */
+.doctor-quote {
+  font-family: var(--font-heading), serif;
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  line-height: 1.6;
+  color: var(--green-dark);
+  border-inline-start: 4px solid var(--gold);
+  padding: 6px 0 6px 22px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.gallery-item {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #fff;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item figcaption {
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- health articles ---------- */
+.health-article h2 {
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+}
+
+.health-article h3 {
+  font-size: 1.1rem;
+  margin: 22px 0 6px;
+  color: var(--green-dark);
+}
+
+.health-article p {
+  color: var(--ink);
 }
 
 /* ---------- references list ---------- */
