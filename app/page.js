@@ -11,7 +11,7 @@ import doctorPortrait from '../public/doctor-portrait.jpg';
 import doctorPoster from '../public/doctor-poster.jpg';
 import doctorGarden from '../public/doctor-garden.jpg';
 import bottlesPhoto from '../public/homeo-bottles.jpg';
-import globulesPhoto from '../public/homeo-globules.jpg';
+import doctorConsult from '../public/doctor-consult.jpg';
 
 const Hero3D = dynamic(() => import('../components/Hero3D'), { ssr: false });
 
@@ -282,8 +282,8 @@ const T = {
           desc: 'दवा के प्रभाव के अनुसार समय-समय पर परामर्श और आवश्यकता होने पर दवा में बदलाव किया जाता है।',
         },
       ],
-      photoCaption: 'होम्योपैथिक दवाएँ, मीठी गोलियों के रूप में',
-      imgAlt: 'होम्योपैथिक दवा की मीठी गोलियाँ',
+      photoCaption: 'क्लिनिक में परामर्श के दौरान',
+      imgAlt: 'डॉ. नरेश कुमार गुप्ता क्लिनिक में रोगियों से परामर्श करते हुए',
     },
     why: {
       heading: 'होम्योपैथी ही क्यों?',
@@ -521,8 +521,8 @@ const T = {
           desc: 'Progress is reviewed periodically and the medicine is adjusted whenever needed.',
         },
       ],
-      photoCaption: 'Homeopathic medicines, given as sweet pills',
-      imgAlt: 'Homeopathic sweet pills',
+      photoCaption: 'During a consultation at the clinic',
+      imgAlt: 'Dr. Naresh Kumar Gupta consulting patients at the clinic',
     },
     why: {
       heading: 'Why Homeopathy?',
@@ -791,7 +791,7 @@ export default function Home() {
               </ol>
               <figure className="process-photo">
                 <Image
-                  src={globulesPhoto}
+                  src={doctorConsult}
                   alt={t.process.imgAlt}
                   sizes="(min-width: 900px) 380px, 92vw"
                 />
