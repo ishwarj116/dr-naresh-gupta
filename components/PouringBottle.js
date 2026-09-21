@@ -61,24 +61,37 @@ export default function PouringBottle({ alt }) {
         Math.max(0, (p.y - MOUTH.y * h) / ((END_Y - MOUTH.y) * h))
       );
       const rad = p.r0 * (0.85 + 1.0 * prog);
+      // पीछे हल्की छाया, ताकि हल्की पृष्ठभूमि पर गोली उभरे
+      const sx = p.x + rad * 0.28;
+      const sy = p.y + rad * 0.5;
+      const sh = ctx.createRadialGradient(sx, sy, rad * 0.2, sx, sy, rad * 1.2);
+      sh.addColorStop(0, 'rgba(88,82,64,0.30)');
+      sh.addColorStop(1, 'rgba(88,82,64,0)');
+      ctx.fillStyle = sh;
+      ctx.beginPath();
+      ctx.arc(sx, sy, rad * 1.2, 0, Math.PI * 2);
+      ctx.fill();
+      // ठोस, अपारदर्शी मैट गोली (बोतल की असली गोलियों जैसी)
       const g = ctx.createRadialGradient(
-        p.x - rad * 0.38, p.y - rad * 0.42, rad * 0.1,
+        p.x - rad * 0.35, p.y - rad * 0.4, rad * 0.08,
         p.x, p.y, rad
       );
-      g.addColorStop(0, `rgba(255,255,255,${p.a})`);
-      g.addColorStop(0.5, `rgba(248,246,240,${p.a})`);
-      g.addColorStop(0.82, `rgba(228,223,209,${p.a})`);
-      g.addColorStop(1, `rgba(196,189,170,${p.a})`);
+      g.addColorStop(0, '#ffffff');
+      g.addColorStop(0.45, '#faf7f0');
+      g.addColorStop(0.8, '#ece6d7');
+      g.addColorStop(1, '#c9c1ab');
       ctx.fillStyle = g;
       ctx.beginPath();
       ctx.arc(p.x, p.y, rad, 0, Math.PI * 2);
       ctx.fill();
+      // नीचे-दाएँ गहराती छाया से गोलाई का एहसास
       const rim = ctx.createRadialGradient(
-        p.x + rad * 0.3, p.y + rad * 0.35, rad * 0.4,
+        p.x + rad * 0.35, p.y + rad * 0.4, rad * 0.35,
         p.x, p.y, rad
       );
       rim.addColorStop(0, 'rgba(0,0,0,0)');
-      rim.addColorStop(1, `rgba(120,110,88,${0.18 * p.a})`);
+      rim.addColorStop(0.85, 'rgba(0,0,0,0)');
+      rim.addColorStop(1, 'rgba(105,95,72,0.34)');
       ctx.fillStyle = rim;
       ctx.beginPath();
       ctx.arc(p.x, p.y, rad, 0, Math.PI * 2);
