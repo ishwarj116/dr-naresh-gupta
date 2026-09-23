@@ -8,6 +8,7 @@ export default function sitemap() {
     { url: `${BASE}/doctor/`, priority: 0.9 },
     { url: `${BASE}/homeopathy/`, priority: 0.8 },
     { url: `${BASE}/articles/`, priority: 0.7 },
+    { url: `${BASE}/conditions/`, priority: 0.9 },
     { url: `${BASE}/medicines/`, priority: 0.8 },
     { url: `${BASE}/privacy/`, priority: 0.3 },
   ];

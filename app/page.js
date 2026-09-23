@@ -11,6 +11,7 @@ import doctorPortrait from '../public/doctor-portrait.jpg';
 import doctorPoster from '../public/doctor-poster.jpg';
 import doctorGarden from '../public/doctor-garden.jpg';
 import PouringBottle from '../components/PouringBottle';
+import ConditionCategories from '../components/ConditionCategories';
 import doctorConsult from '../public/doctor-consult.jpg';
 
 const Hero3D = dynamic(() => import('../components/Hero3D'), { ssr: false });
@@ -190,69 +191,8 @@ const T = {
     },
     specialties: {
       heading: 'किन रोगों का उपचार',
-      sub: 'जिन रोगों के उपचार का डॉक्टर साहब को विशेष अनुभव है:',
-      items: [
-        {
-          icon: '🦶',
-          title: 'एड़ी एवं तलवे का दर्द',
-          desc: 'तलवे में सुई जैसी चुभन और तेज़ दर्द (प्लांटर फ़ेशिआइटिस / कैल्केनियल स्पर), जिसमें सुबह ज़मीन पर पैर रखते ही असहनीय पीड़ा होती है। इसके उपचार का लंबा अनुभव।',
-        },
-        {
-          icon: '🌿',
-          title: 'मस्से (Warts)',
-          desc: 'शरीर के किसी भी भाग पर होने वाले छोटे-बड़े मस्सों का बिना चीर-फाड़, दवाओं द्वारा सौम्य उपचार।',
-        },
-        {
-          icon: '👣',
-          title: 'गोखरू / कॉर्न',
-          desc: 'पैर के तलवे में बनने वाली कठोर, फफोले जैसी गाँठ, जिससे चलने में दर्द होता है। मूल कारण पर केंद्रित होम्योपैथिक उपचार।',
-        },
-        {
-          icon: '🌡️',
-          title: 'तेज़ एवं बार-बार आने वाला बुखार',
-          desc: 'तेज़ी से चढ़ने वाले तथा बार-बार लौटने वाले बुखार का कारण समझकर संतुलित होम्योपैथिक चिकित्सा।',
-        },
-        {
-          icon: '🪷',
-          title: 'बवासीर (Piles)',
-          desc: 'खूनी एवं बादी बवासीर में बिना ऑपरेशन, होम्योपैथिक दवाओं द्वारा राहत दिलाने का लंबा अनुभव।',
-        },
-        {
-          icon: '🦴',
-          title: 'सर्वाइकल (गर्दन का दर्द)',
-          desc: 'सर्वाइकल स्पॉन्डिलाइटिस से होने वाली गर्दन की जकड़न, दर्द तथा हाथों में झनझनाहट का सौम्य होम्योपैथिक उपचार।',
-        },
-        {
-          icon: '💧',
-          title: 'हाइड्रोसील (Hydrocele)',
-          desc: 'अंडकोष में पानी भरने की समस्या (हाइड्रोसील) में बिना ऑपरेशन, होम्योपैथिक दवाओं से उपचार का लंबा अनुभव।',
-        },
-        {
-          icon: '👂',
-          title: 'कान बहना (Ear Discharge)',
-          desc: 'बच्चों और बड़ों में कान से पानी या मवाद बहने की पुरानी शिकायत का मूल कारण समझकर उपचार।',
-        },
-        {
-          icon: '🌼',
-          title: 'चर्म रोग (दाग, छाजन, खुजली)',
-          desc: 'त्वचा के दाग-धब्बे, छाजन (एक्ज़िमा), खाज-खुजली और बार-बार उभरने वाली त्वचा की शिकायतों का मूल कारण पर केंद्रित उपचार।',
-        },
-        {
-          icon: '🤧',
-          title: 'एलर्जी (Allergy)',
-          desc: 'धूल, धूप, मौसम या खान-पान से होने वाली एलर्जी में त्वचा पर चकत्ते, खुजली, बार-बार छींकें व ज़ुकाम का सौम्य उपचार।',
-        },
-        {
-          icon: '🩺',
-          title: 'जटिल एवं पुरानी बीमारियाँ',
-          desc: 'वर्षों से चली आ रही जटिल, गंभीर एवं पुरानी बीमारियों के प्रबंधन का पाँच दशकों से अधिक का गहन अनुभव।',
-        },
-        {
-          icon: '🤝',
-          title: 'परिवार की संपूर्ण चिकित्सा',
-          desc: 'बच्चों से लेकर बुज़ुर्गों तक, हर आयु के रोगियों के लिए सुरक्षित और सौम्य होम्योपैथिक परामर्श।',
-        },
-      ],
+      sub: 'जिन रोगों के उपचार का डॉक्टर साहब को विशेष अनुभव है, श्रेणी अनुसार:',
+      viewAll: 'सभी रोग व उपचार विस्तार से देखें →',
     },
     cta1: {
       heading: 'इनमें से कोई समस्या है?',
@@ -430,69 +370,8 @@ const T = {
     },
     specialties: {
       heading: 'Conditions We Treat',
-      sub: 'Conditions in which the doctor has particular experience:',
-      items: [
-        {
-          icon: '🦶',
-          title: 'Heel & Sole Pain',
-          desc: 'Needle-like stabbing pain in the sole (plantar fasciitis / calcaneal spur), often unbearable with the first steps in the morning. Decades of experience treating it.',
-        },
-        {
-          icon: '🌿',
-          title: 'Warts',
-          desc: 'Gentle, medicine-based care for warts of all sizes anywhere on the body, without cutting or surgery.',
-        },
-        {
-          icon: '👣',
-          title: 'Corns',
-          desc: 'Hard, blister-like growths on the sole that make walking painful. Treatment focused on the underlying cause.',
-        },
-        {
-          icon: '🌡️',
-          title: 'High & Recurring Fever',
-          desc: 'Balanced homeopathic care for rapidly rising and frequently returning fevers, by understanding their cause.',
-        },
-        {
-          icon: '🪷',
-          title: 'Piles',
-          desc: 'Long experience of relieving bleeding and non-bleeding piles with medicines, without operation.',
-        },
-        {
-          icon: '🦴',
-          title: 'Cervical (Neck Pain)',
-          desc: 'Gentle homeopathic care for neck stiffness, pain and tingling in the arms caused by cervical spondylitis.',
-        },
-        {
-          icon: '💧',
-          title: 'Hydrocele',
-          desc: 'Long experience of medicine-based treatment of hydrocele, without operation.',
-        },
-        {
-          icon: '👂',
-          title: 'Ear Discharge',
-          desc: 'Chronic ear discharge in children and adults, treated by understanding its underlying cause.',
-        },
-        {
-          icon: '🌼',
-          title: 'Skin Problems (Spots, Eczema, Itching)',
-          desc: 'Skin blemishes, eczema, itching and recurring skin complaints, with treatment focused on the underlying cause.',
-        },
-        {
-          icon: '🤧',
-          title: 'Allergy',
-          desc: 'Allergies from dust, sunlight, weather or food: rashes, itching, frequent sneezing and colds, treated gently.',
-        },
-        {
-          icon: '🩺',
-          title: 'Complex & Chronic Illnesses',
-          desc: 'Over five decades of deep experience in managing complex, serious and long-standing diseases.',
-        },
-        {
-          icon: '🤝',
-          title: 'Whole-Family Care',
-          desc: 'Safe and gentle homeopathic consultation for every age, from children to the elderly.',
-        },
-      ],
+      sub: 'Conditions in which the doctor has particular experience, by category:',
+      viewAll: 'See all conditions in detail →',
     },
     cta1: {
       heading: 'Facing any of these problems?',
@@ -753,17 +632,12 @@ export default function Home() {
           <div className="container">
             <h2>{t.specialties.heading}</h2>
             <p className="section-sub">{t.specialties.sub}</p>
-            <div className="cards">
-              {t.specialties.items.map((s) => (
-                <article className="card" key={s.title}>
-                  <span className="card-icon" aria-hidden="true">
-                    {s.icon}
-                  </span>
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                </article>
-              ))}
-            </div>
+            <ConditionCategories />
+            <p className="mt-20 center">
+              <Link className="btn btn-solid" href="/conditions">
+                {t.specialties.viewAll}
+              </Link>
+            </p>
           </div>
         </section>
 

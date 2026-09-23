@@ -21,7 +21,7 @@ const T = {
       { href: '/homeopathy', label: 'होम्योपैथी', match: 'homeopathy' },
       { href: '/medicines', label: 'औषधियाँ', match: 'medicines' },
       { href: '/articles', label: 'स्वास्थ्य लेख', match: 'articles' },
-      { href: '/#specialties', label: 'रोग व उपचार' },
+      { href: '/conditions', label: 'रोग व उपचार', match: 'conditions' },
       { href: '/#contact', label: 'संपर्क' },
     ],
   },
@@ -38,7 +38,7 @@ const T = {
       { href: '/homeopathy', label: 'Homeopathy', match: 'homeopathy' },
       { href: '/medicines', label: 'Medicines', match: 'medicines' },
       { href: '/articles', label: 'Articles', match: 'articles' },
-      { href: '/#specialties', label: 'Conditions' },
+      { href: '/conditions', label: 'Conditions', match: 'conditions' },
       { href: '/#contact', label: 'Contact' },
     ],
   },
@@ -57,6 +57,8 @@ export default function Navbar() {
         ? 'doctor'
         : pathname.includes('/articles')
           ? 'articles'
+          : pathname.includes('/conditions')
+          ? 'conditions'
           : pathname.includes('/privacy')
             ? 'privacy'
             : 'home';
