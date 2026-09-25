@@ -9,7 +9,7 @@ const T = {
   hi: {
     aboutHeading: 'डॉ. नरेश कुमार गुप्ता',
     aboutLine:
-      'प्रमाणित एवं पंजीकृत होम्योपैथिक चिकित्सक। 51 वर्षों से जटिल एवं पुरानी बीमारियों की सौम्य होम्योपैथिक चिकित्सा।',
+      'प्रमाणित एवं पंजीकृत होम्योपैथिक चिकित्सक। 45 वर्षों से जटिल एवं पुरानी बीमारियों की सौम्य होम्योपैथिक चिकित्सा।',
     linksHeading: 'पृष्ठ',
     links: [
       { href: '/doctor', label: 'डॉक्टर परिचय' },
@@ -33,7 +33,7 @@ const T = {
   en: {
     aboutHeading: 'Dr. Naresh Kumar Gupta',
     aboutLine:
-      'Certified & registered homeopathic physician. Gentle homeopathic care for complex and chronic illnesses for 51 years.',
+      'Certified & registered homeopathic physician. Gentle homeopathic care for complex and chronic illnesses for 45 years.',
     linksHeading: 'Pages',
     links: [
       { href: '/doctor', label: 'About the Doctor' },

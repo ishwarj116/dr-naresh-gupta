@@ -67,7 +67,7 @@ export default function Effects() {
       els.forEach((el) => io.observe(el));
       cleanup.push(() => io.disconnect());
 
-      // आँकड़े गिनती के साथ उभरते हैं (51+ आदि)
+      // आँकड़े गिनती के साथ उभरते हैं (45+ आदि)
       const sio = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {

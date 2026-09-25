@@ -173,7 +173,7 @@ const T = {
     ],
     about: {
       heading: 'परिचय',
-      p1: `डॉ. नरेश कुमार गुप्ता विगत ${site.experienceYears} वर्षों से होम्योपैथिक चिकित्सा के माध्यम से रोगियों की सेवा कर रहे हैं। पाँच दशकों से भी लंबी इस यात्रा में उन्होंने साधारण सर्दी-बुखार से लेकर वर्षों पुरानी जटिल बीमारियों तक, हर प्रकार के रोगियों का उपचार किया है। वे प्रमाणित होम्योपैथिक चिकित्सक हैं और भारत में होम्योपैथिक चिकित्सा हेतु आवश्यक सभी योग्यताएँ एवं पंजीकरण रखते हैं। अब वे रामपुर (उ.प्र.) के साथ-साथ गुरुग्राम में भी उपलब्ध हैं।`,
+      p1: `डॉ. नरेश कुमार गुप्ता विगत ${site.experienceYears} वर्षों से होम्योपैथिक चिकित्सा के माध्यम से रोगियों की सेवा कर रहे हैं। साढ़े चार दशकों से भी लंबी इस यात्रा में उन्होंने साधारण सर्दी-बुखार से लेकर वर्षों पुरानी जटिल बीमारियों तक, हर प्रकार के रोगियों का उपचार किया है। वे प्रमाणित होम्योपैथिक चिकित्सक हैं और भारत में होम्योपैथिक चिकित्सा हेतु आवश्यक सभी योग्यताएँ एवं पंजीकरण रखते हैं। अब वे रामपुर (उ.प्र.) के साथ-साथ गुरुग्राम में भी उपलब्ध हैं।`,
       p2: 'उनकी पहचान किसी विज्ञापन से नहीं, बल्कि स्वस्थ हुए रोगियों के विश्वास से बनी है। आज भी उनके पास आने वाले अधिकांश रोगी पुराने रोगियों की सलाह पर ही आते हैं। यही उनकी चिकित्सा की सबसे बड़ी पहचान है।',
       more: 'पूरा परिचय पढ़ें →',
     },
@@ -352,7 +352,7 @@ const T = {
     ],
     about: {
       heading: 'About the Doctor',
-      p1: `Dr. Naresh Kumar Gupta has been serving patients through homeopathy for the last ${site.experienceYears} years. Over this journey of more than five decades, he has treated everything from common colds and fevers to complex illnesses that had lasted for years. He is a certified homeopathic physician and holds all the qualifications and registration required to practise homeopathy in India. He now consults in Gurugram along with Rampur (UP).`,
+      p1: `Dr. Naresh Kumar Gupta has been serving patients through homeopathy for the last ${site.experienceYears} years. Over this journey of more than four decades, he has treated everything from common colds and fevers to complex illnesses that had lasted for years. He is a certified homeopathic physician and holds all the qualifications and registration required to practise homeopathy in India. He now consults in Gurugram along with Rampur (UP).`,
       p2: 'His reputation was built not by advertising but by the trust of recovered patients. Even today, most people who visit him come on the recommendation of former patients. That trust is the true hallmark of his practice.',
       more: 'Read his full profile →',
     },
